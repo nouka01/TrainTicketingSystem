@@ -1,0 +1,118 @@
+body {
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+.heading {
+    background-color: #2c16f3;
+    color: whitesmoke;
+    font-size: large;
+    width: 850px;
+    margin: auto;
+    margin-bottom: 13px;
+    border: 5px #2c16f300 ridge;
+    outline: 7px black groove;
+    font-style: normal;
+    border-radius: 100px;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+}
+
+.user-input {
+    border: 3px #2c16f300 ridge;
+    border-radius: 100px;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+    border-top: unset;
+    outline: 9px black groove;
+    width: 850px;
+    margin: auto;
+    background-color: rgba(245, 245, 245, 0.813);
+}
+
+.ln,
+.fn,
+.email,
+.number,
+.city,
+.address,
+.source,
+.destination,
+.date,
+.time,
+.oneWay-twoWay,
+.firstClass-secondClass {
+    display: inline-block;
+    margin: 20px;
+    font-size: 22px;
+}
+
+.fn,
+.email,
+.city,
+.source,
+.date,
+.oneWay-twoWay {
+    margin-right: 150px;
+}
+
+.no-of-tickets,
+.submit-and-reset {
+    margin: 20px;
+    font-size: 20px;
+}
+
+input {
+    font-size: 20px;
+    border: 1.5px #2c16f3 solid;
+    border-radius: 7px;
+
+}
+
+select {
+    font-size: 18px;
+    border: 1.5px #2c16f3 solid;
+    border-radius: 7px;
+    width: 250px;
+
+}
+
+.submit-and-reset {
+    margin-top: 30px;
+}
+
+#reset,
+#submit {
+    margin-left: 40px;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+    border-color: unset;
+    font-size: 25px;
+
+
+}
+
+.source {
+    margin-right: 100px;
+}
+
+.date {
+    margin-right: 250px;
+}
+
+.oneWay-twoWay,
+.firstClass-secondClass {
+    border: 1.5px #2c16f3 solid;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
