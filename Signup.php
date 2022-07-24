@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
@@ -43,6 +43,7 @@
                 <input type="password" name = 'conf-password' placeholder="Confirm Password">
             </div>
             <center><input type="submit" name = 'submit' value="SignUp" class="btn"></center> 
+            <center><a href="login.php" class="btn">Login</a></center>
         </form>
     </div>
 </section>
