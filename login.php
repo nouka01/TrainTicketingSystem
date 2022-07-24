@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -32,7 +32,7 @@
                 <input type="password" placeholder="Password">
             </div>
             <center><input type="submit" value="Login" class="btn"></center> 
-            <center><a href="Signup.html" class="btn">SignUp</a></center>
+            <center><a href="Signup.php" class="btn">SignUp</a></center>
         </form>
     </div>
 </section>
