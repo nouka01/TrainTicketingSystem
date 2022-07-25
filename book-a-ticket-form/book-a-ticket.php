@@ -118,7 +118,7 @@
                 <div class="destination">
                     <label for="destination">Destination Station</label>
                     <br>
-                    <select name="destinationStation" id="destination" required>
+                    <select name="destinationStation" id="destination" required >
 
                         <optgroup label="To Cairo">
                             <option value="station1">Ramses Station </option>
