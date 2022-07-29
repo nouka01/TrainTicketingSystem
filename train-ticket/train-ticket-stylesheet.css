@@ -1,0 +1,118 @@
+body {
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: x-small;
+    font-weight: 300;
+}
+
+.header {
+    background-image: url(../images/5c5ebb82714d1567467b95f833f9d014.jpeg);
+    background-repeat: no-repeat;
+    background-position-y: -7px;
+    background-position-x: 6px;
+    background-size: 120px 55px;
+    background-color: rgb(60, 28, 238);
+    border: 5px black solid;
+    border-radius: 20px;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-bottom: unset;
+    margin: 0px 350px;
+    width: auto;
+    color: whitesmoke;
+    text-align: left;
+    padding: 10px;
+}
+
+h1 {
+    margin: 0px 110px;
+
+}
+
+.whole-ticket {
+    background-image: url(../images/abstract-soft-blue-background-with-dynamic-waves-shape-free-vector.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 5px black solid;
+    border-top: unset;
+    border-radius: 20px;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-bottom: unset;
+    margin: -11px 350px;
+    width: auto;
+    height: 200px;
+}
+
+.footer {
+    background-color: rgb(60, 28, 238);
+    border: 5px black solid;
+    border-radius: 20px;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+    border-top: unset;
+    margin: 10px 350px;
+    width: auto;
+    color: whitesmoke;
+    text-align: left;
+    padding: 10px;
+
+}
+
+
+.passenger-name,
+.from,
+.to,
+.train-date,
+.depart-time,
+.train-name,
+.platform-number,
+.carriage-number,
+.class-degree {
+    margin: 5px 10px;
+    display: inline-block;
+}
+
+.left-ticket-part {
+    text-align: left;
+    width: 230px;
+    margin-top: 10px;
+    margin-left: 20px;
+
+}
+
+.right-ticket-part {
+    text-align: left;
+    margin-top: -200px;
+    margin-right: 20px;
+    margin-left: 570px;
+
+}
+
+.middle-ticket-part {
+    text-align: left;
+    margin-top: -11.5px;
+    margin-left: 250px;
+
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    border: hidden;
+    font-size: small;
+    background-color: rgba(245, 245, 245, 0);
+    padding: 5px;
+}
+
+.class {
+    font-size: 10px;
+}

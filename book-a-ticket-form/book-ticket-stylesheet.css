@@ -5,11 +5,6 @@ body {
 
 }
 
-hr {
-    border: 2px black solid;
-    width: 100%;
-}
-
 .heading {
     background-color: rgb(60, 28, 238);
     color: whitesmoke;
