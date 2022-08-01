@@ -6,22 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <!-- Start Contact -->
- <!-- Start Nav -->
- <nav>
-    <div class="logo">
-      <a href="index.html">Train<span>Station</span></a>
-    </div>
-    <i class="fas fa-ellipsis-v" id="menuButton"></i>
-    <ul id="menu">
-      <li class="activ">Home</li>
-      <li><a href="book-a-ticket-form/book-a-ticket.php">Schedule</a>
-      <li><a href="">Contact us</a>
-      <li><a href="Signup.php">Signup</a>
-      
-     
-    </ul>
-  </nav>
-  <!-- End Nav -->
+<?php include 'navbar.php';?>
     </div>
     <div class="contact">
         <div class="container">
@@ -48,4 +33,5 @@
         </div>
 
     </div>
+    <?php include 'footer.php';?>
     <!-- End Contact -->

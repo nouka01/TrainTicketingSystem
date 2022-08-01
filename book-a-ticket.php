@@ -7,7 +7,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/book-ticket-stylesheet.css">
 </head>
-
+<?php include 'navbar.php';?>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <body>
     <div class="heading">
         <h1><b>Book your ticket here!</b></h1>
@@ -204,6 +213,10 @@
 
 
     </form>
+    <br>
+    <br>
+    <br>
+    <?php include 'footer.php';?>
 </body>
 
 </html>
