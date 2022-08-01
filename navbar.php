@@ -14,7 +14,7 @@
     </div>
     <i class="fas fa-ellipsis-v" id="menuButton"></i>
     <ul id="menu">
-      <li> <a href="index.html">Home</li></a>
+      <li> <a href="index.php">Home</li></a>
       <li><a href="book-a-ticket.php">Ticket</a>
       <li><a href="cu.php">Contact us</a>
       <li><a href="Signup.php">Signup</a>
