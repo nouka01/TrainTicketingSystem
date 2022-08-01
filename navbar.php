@@ -10,7 +10,7 @@
      <!-- Start Nav -->
   <nav>
     <div class="logo">
-      <a href="index.html">Train<span>Station</span></a>
+      <a href="index.php">Train<span>Station</span></a>
     </div>
     <i class="fas fa-ellipsis-v" id="menuButton"></i>
     <ul id="menu">
