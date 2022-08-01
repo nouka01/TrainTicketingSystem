@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <?php include 'navbar.php';?>
+  
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -139,7 +140,7 @@
   </div>
   <!-- End Contact -->
   <!-- Start Footer -->
-
+  <?php include 'footer.php';?>
 </body>
 
 </html>
