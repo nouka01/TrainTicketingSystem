@@ -1,3 +1,4 @@
+<?php  require 'database/dbConnection.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,8 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="js/signUpValidation.js"></script>
+
 </head>
 <body>
 
@@ -19,31 +22,42 @@
 
   
 
-<section class="contact" id="contact">
+<section class="contact" >
 <br>
     <div class="row">
-        <form action="Signup.php" method="post">
+        <form action="" method="post" id="signup-form">
         	<center><h1 class="heading"> <span>Sign</span> Up </h1></center>
+            <br>
             <div class="inputBox">
-                <input type="text" name = 'username' placeholder="Username">
+                <input type="text" name = 'username' id='u-name' onchange = "userNameValidation(); submitEnable();" placeholder="Username" required>
+            <p id ="username-err"></p>
             </div>
             <br>
             <div class="inputBox">
-                <input type="text" name = 'phone' placeholder="Phone">
+                <input type="text" name = 'phone' id = 'phone-num' onchange = "phoneNumberValidation(); submitEnable();" placeholder="Phone Number">
+                <p id ="phonenum-err"></p>
             </div>
             <br>
             <div class="inputBox">
-                <input type="text" name = 'email' placeholder="Email">
+                <input type="text" name = 'email' id = 'e-mail' onchange = "emailValidation(); submitEnable();" placeholder="Email">
+                <p id ="email-err"></p>
             </div>
             <br>
             <div class="inputBox">
-                <input type="password" name = 'password' placeholder="Password">
+                <input type="password" name = 'password' id = 'p-word' onchange = "passwordValidation(); submitEnable();" placeholder="Password">
+                <p id ="pw-err"></p>
             </div>
+            <br>
             <div class="inputBox">
-                <input type="password" name = 'conf-password' placeholder="Confirm Password">
+                <input type="password" name = 'conf-password' id = 'conf-password' onchange = "confirmPasswordValidation(); submitEnable();" placeholder="Confirm Password">
+                <p id ="conf-err"></p>            
+                <br>
             </div>
-            <center><input type="submit" name = 'submit' value="SignUp" class="btn"></center> 
-            <center><a href="login.php" class="btn">Login</a></center>
+            <script> submitEnable(); </script>
+            <center><input type="submit" id ='submit-btn' name = 'submit' value="Register!" class="btn"  style ="background-color : grey;" disabled ></center> 
+            <center><p>Pass all the validations to enable the Register button</p></center>
+            <br>
+            <center>Would Like to Login?<a href="login.php" >Click Here</a></center>
         </form>
     </div>
 </section>
@@ -55,7 +69,7 @@
 
 
 if(isset($_POST['submit'])){
-    include 'C:\xampp\htdocs\TrainTicketingSystem-main\database\dbConnection.php';
+   
 
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -69,7 +83,7 @@ if(isset($_POST['submit'])){
     $sql = mysqli_query($conn,$query);
     if($sql){
         echo "Successful SignUp";
-        header("Location: login.php");
+        header("Location: index.php");
     }
     else
         echo "Registration Unsuccessful";

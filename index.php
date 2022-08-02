@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <?php include 'navbar.php';?>
@@ -25,7 +26,9 @@
       <source src="images/production ID_4550475.mp4" />
     </video>
     <div class="text-box">
-      <p>WORK HARDER, GET STRONGER</p>
+    <p> <?php echo "Hello, ". $_SESSION['username'];?> </p>
+      <p>WORK HARDER, GET STRONGER </p>
+      
       <h1>EASY WITH OUR <span>Train Station</span></h1>
       <a href="Signup.php">BECOME A MEMBER</a>
     </div>
