@@ -1,5 +1,5 @@
 function userNameValidation() {
-    //Validation for the username field
+    
     var usernameField = document.getElementById("u-name").value;
     var errorText;
 
