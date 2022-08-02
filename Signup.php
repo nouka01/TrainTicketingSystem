@@ -83,7 +83,7 @@ if(isset($_POST['submit'])){
     $sql = mysqli_query($conn,$query);
     if($sql){
         echo "Successful SignUp";
-        header("Location: login.php");
+        header("Location: index.php");
     }
     else
         echo "Registration Unsuccessful";
