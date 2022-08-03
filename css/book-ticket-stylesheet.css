@@ -57,9 +57,19 @@ body {
 }
 
 .no-of-tickets,
-.submit-and-reset {
+.submit-and-reset,
+.ticket-price {
     margin: 20px;
     font-size: 20px;
+}
+
+.ticket-price {
+    margin-left: 50px;
+}
+
+#ticketPrice {
+    border: hidden;
+    background-color: whitesmoke;
 }
 
 input {

@@ -51,7 +51,6 @@
                 </div>
 
                 <div class="number">
-                    <!-- Change the number thing in css -->
                     <label for="pn"> Phone Number</label>
                     <br>
                     <input type="number" name="pn" id="pn" required placeholder="Enter your number" maxlength="15">
@@ -202,6 +201,13 @@
                 <label for="noTickets">Enter the number of tickets: </label>
                 <input id="noTickets" type="number" max="20" min="1" step="1" value="1">
             </div>
+
+            <div class="ticket-price">
+                <label for="ticketPrice">Subtotal: </label>
+                <input id="ticketPrice" name="ticketPrice" type="number" max="1000" min="10" value="10">
+            </div>
+
+
 
             <div class="submit-and-reset">
                 <input type="submit" value="Book Now" id="submit">
