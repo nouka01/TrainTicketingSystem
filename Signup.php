@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Login</title>
+	<title>Register</title>
 
 	   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
@@ -76,20 +76,25 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
     $phone = $_POST['phone'];
 
+    $selectEmailFromDB = mysqli_query($conn, "SELECT * FROM users WHERE user_email = '".$email."'");
+        if(mysqli_num_rows($selectEmailFromDB)) {
+            die('This email already exists!');
+        }
+
     $query = "INSERT INTO users (user_name, user_email, user_password, user_phone) 
     VALUES 
     ('$username' , '$email', '$password', '$phone')";
 
     $sql = mysqli_query($conn,$query);
-    if($sql){
-        echo "Successful SignUp";
-        header("Location: index.php");
-    }
+        if($sql){
+            echo "Successful SignUp";
+            header("Location: index.php");
+        }
     else
         echo "Registration Unsuccessful";
 
    
 
 
-
+    
 }
