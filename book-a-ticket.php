@@ -7,7 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/book-ticket-stylesheet.css">
 </head>
-<?php include 'navbar.php';?>
+<?php session_start();
+    include 'navbar.php';?>
 <br>
 <br>
 <br>
