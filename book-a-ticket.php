@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/book-ticket-stylesheet.css">
+    <link rel="stylesheet" href="CSS/book-ticket-stylesheet.css">
 </head>
 <?php session_start();
     include 'navbar.php';?>
@@ -25,57 +25,6 @@
 
     <form method="post">
         <div class="user-input">
-
-            <div class="User-name">
-                <div class="fn">
-                    <label for="fn">First Name</label>
-                    <br>
-                    <input type="text" name="firstName" id="fn" required autofocus placeholder="Enter your First name "
-                        maxlength="20">
-                </div>
-
-                <div class="ln">
-                    <label for="ln">Last Name</label>
-                    <br>
-                    <input type="text" name="lastName" id="ln" required placeholder="Enter your Last name"
-                        maxlength="20">
-                </div>
-
-            </div>
-
-            <div class="Email-and-phoneNumber">
-                <div class="email">
-                    <label for="mail">Email</label>
-                    <br>
-                    <input type="email" name="email" id="mail" required placeholder="Enter your E-mail" maxlength="40">
-                </div>
-
-                <div class="number">
-                    <label for="pn"> Phone Number</label>
-                    <br>
-                    <input type="number" name="pn" id="pn" required placeholder="Enter your number" maxlength="15">
-                </div>
-
-            </div>
-
-            <div class="city-and-address">
-                <div class="city">
-                    <label for="city">City</label>
-                    <br>
-                    <input type="text" name="city" id="city" placeholder="ex: Nasr-city" maxlength="20">
-                </div>
-
-                <div class="address">
-                    <label for="address"> Address</label>
-                    <br>
-                    <input type="text" name="address" id="address" required placeholder="Enter your addres"
-                        maxlength="100">
-                </div>
-            </div>
-
-
-            <hr>
-
 
             <div class="radio-buuton-header">
                 <p class="p2"><b>Trip Details</b></p>
@@ -214,7 +163,6 @@
 
                 <!-- <input type="reset" value="Reset" id="reset"> -->
             </div>
-
 
         </div>
 

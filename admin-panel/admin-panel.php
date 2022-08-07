@@ -30,7 +30,7 @@
       <div class="square2">
         <div class="text2">
           <p>Total Income:-</p>
-          <h4 name="totalNumberOfProfit" class="heading4"><span>10000</span>&dollar;</h4>
+          <h4 name="totalNumberOfProfit" class="heading4"><span>10,000</span>&dollar;</h4>
         </div>
       </div>
       <div class="square3">

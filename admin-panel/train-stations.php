@@ -75,6 +75,7 @@
             </table>
         </div>
 
+        <div class="centering">
 
         <div class="button-to-add-station">
             <button id="add-station-button" onclick="openForm()">Add Station</button>
@@ -83,6 +84,8 @@
         <div class="button-to-delete-station">
             <input id="delete-station-button" type="button" value="Delete Station">
         </div>
+        
+    </div>
 
 
         <div class="form-popup" id="myForm">
