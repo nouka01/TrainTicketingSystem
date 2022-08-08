@@ -27,15 +27,10 @@ body {
     border-top: unset;
     width: 850px;
     margin: auto;
+    margin-top: -10px;
     background-color: rgba(245, 245, 245, 0.813);
 }
 
-.ln,
-.fn,
-.email,
-.number,
-.city,
-.address,
 .source,
 .destination,
 .date,
@@ -47,9 +42,6 @@ body {
     font-size: 22px;
 }
 
-.fn,
-.email,
-.city,
 .source,
 .date,
 .oneWay-twoWay {

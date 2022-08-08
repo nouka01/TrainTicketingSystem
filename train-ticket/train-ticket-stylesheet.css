@@ -1,9 +1,11 @@
 body {
-    margin-top: 50px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-size: x-small;
     font-weight: 300;
+    width: 600px;
+    margin: auto;
+    margin-top: 50px;
 }
 
 .header {
@@ -18,15 +20,15 @@ body {
     border-bottom-left-radius: unset;
     border-bottom-right-radius: unset;
     border-bottom: unset;
-    margin: 0px 350px;
-    width: auto;
+    width: inherit;
+    margin: inherit;
     color: whitesmoke;
     text-align: left;
-    padding: 10px;
+    padding: 10px 0px;
 }
 
 h1 {
-    margin: 0px 110px;
+    margin: 0px 120px;
 
 }
 
@@ -36,15 +38,9 @@ h1 {
     background-size: cover;
     border: 5px black solid;
     border-top: unset;
-    border-radius: 20px;
-    border-top-left-radius: unset;
-    border-top-right-radius: unset;
-    border-bottom-left-radius: unset;
-    border-bottom-right-radius: unset;
     border-bottom: unset;
-    margin: -11px 350px;
-    width: auto;
-    height: 200px;
+    width: inherit;
+    margin: auto;
 }
 
 .footer {
@@ -54,56 +50,38 @@ h1 {
     border-top-left-radius: unset;
     border-top-right-radius: unset;
     border-top: unset;
-    margin: 10px 350px;
-    width: auto;
+    width: inherit;
+    margin: auto;
     color: whitesmoke;
-    text-align: left;
-    padding: 10px;
+    padding: 10px 0px;
 
 }
 
-
-.passenger-name,
-.from,
-.to,
-.train-date,
-.depart-time,
-.train-name,
-.platform-number,
-.carriage-number,
-.class-degree {
-    margin: 5px 10px;
+.left-ticket-part,
+.right-ticket-part {
     display: inline-block;
+    text-align: left;
+    width: fit-content;
+    margin-top: 5px;
 }
 
 .left-ticket-part {
-    text-align: left;
-    width: 230px;
-    margin-top: 10px;
+    margin-right: 35px;
     margin-left: 20px;
 
 }
 
 .right-ticket-part {
-    text-align: left;
-    margin-top: -200px;
-    margin-right: 20px;
-    margin-left: 570px;
-
+    margin-left: 35px;
 }
 
-.middle-ticket-part {
-    text-align: left;
-    margin-top: -11.5px;
-    margin-left: 250px;
-
-
+.depart-time {
+    display: inline-block;
+    margin-left: 105px;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.class-degree {
+    display: inline-block;
 }
 
 input {
@@ -113,6 +91,16 @@ input {
     padding: 5px;
 }
 
-.class {
-    font-size: 10px;
+.right-ticket-part .filler-div {
+    visibility: hidden;
+}
+
+.right-ticket-part input {
+    width: 100px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
