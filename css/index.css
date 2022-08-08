@@ -37,73 +37,7 @@
 }
 /* End Main Rules */
 
-/* Start Nav */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 22px 6%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  background-color: rgba(95, 103, 113, 0.4);
-}
-nav .fas {
-  display: none;
-}
-  nav ul li.activ,
-  nav ul li:hover {
-    color: var(--main-text-color) !important;
-  }
-  nav ul li:hover {
-    background-color: #ccc;
-  }
-  nav ul li:last-child {
-    padding: 0;
-  }
-  nav ul li a {
-    display: block;
-  }
 
-nav .logo {
-  font-size: 35px;
-  font-weight: 800;
-  color: white;
-  text-transform: uppercase;
-}
-nav .logo a {
-  text-decoration: none;
-  color: white;
-}
-nav .logo span {
-  color: var(--main-text-color);
-}
-nav ul li {
-  display: inline-block;
-  margin-left: 35px;
-  color: white;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: 0.3s;
-  cursor: pointer;
-}
-nav ul li.activ,
-nav ul li:hover {
-  color: var(--main-text-color);
-}
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  background-color: var(--main-text-color);
-  padding: 12px 17px;
-  transition: 0.3s;
-}
-nav ul li a:hover {
-  color: #1512c2;
-}
-/* End Nav */
 
 /* Start Components */
 .special-heading {
@@ -284,7 +218,7 @@ nav ul li a:hover {
 }
 /* End Classes */
 /* Start Schedule */
-.schedule {
+/* .schedule {
   padding: 100px 0;
   background-image: url(../images/Egypt.jpg);
   background-size: cover;
@@ -313,7 +247,7 @@ nav ul li a:hover {
 }
 .schedule ul li:hover {
   color: var(--main-text-color);
-}
+} */
 table {
   margin: auto;
   color: white;

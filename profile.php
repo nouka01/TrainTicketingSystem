@@ -25,6 +25,12 @@ if (isset($_POST['save'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<?php include 'navbar.php';?>
+<br>
+<br>
+<br>
+<br>
+
 <head>
     <center><h1>My Profile</h1></center>
     <meta charset="utf-8">
