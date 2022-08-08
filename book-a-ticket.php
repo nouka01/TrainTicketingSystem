@@ -1,3 +1,4 @@
+<?php  require 'database/dbConnection.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/book-ticket-stylesheet.css">
+    <link rel="stylesheet" href="css/book-ticket-stylesheet.css">
 </head>
 <?php session_start();
     include 'navbar.php';?>
@@ -23,8 +24,59 @@
         <h1><b>Book your ticket here!</b></h1>
     </div>
 
-    <form method="post">
+    <form action = "" method="post">
         <div class="user-input">
+
+            <div class="User-name">
+                <div class="fn">
+                    <label for="fn">First Name</label>
+                    <br>
+                    <input type="text" name="firstName" id="fn"  disabled autofocus placeholder="Enter your First name "
+                        maxlength="20">
+                </div>
+
+                <div class="ln">
+                    <label for="ln">Last Name</label>
+                    <br>
+                    <input type="text" name="lastName" id="ln"  disabled placeholder="Enter your Last name"
+                        maxlength="20">
+                </div>
+
+            </div>
+
+            <div class="Email-and-phoneNumber">
+                <div class="email">
+                    <label for="mail">Email</label>
+                    <br>
+                    <input type="email" name="email" id="mail" disabled  placeholder="Enter your E-mail" maxlength="40">
+                </div>
+
+                <div class="number">
+                    <label for="pn"> Phone Number</label>
+                    <br>
+                    <input type="number" name="pn" id="pn" disabled  placeholder="Enter your number" maxlength="15">
+                </div>
+
+            </div>
+
+            <div class="city-and-address">
+                <div class="city">
+                    <label for="city">City</label>
+                    <br>
+                    <input type="text" name="city" id="city" disabled placeholder="ex: Nasr-city" maxlength="20">
+                </div>
+
+                <div class="address">
+                    <label for="address"> Address</label>
+                    <br>
+                    <input type="text" name="address" id="address" disabled placeholder="Enter your addres"
+                        maxlength="100">
+                </div>
+            </div>
+
+
+            <hr>
+
 
             <div class="radio-buuton-header">
                 <p class="p2"><b>Trip Details</b></p>
@@ -32,43 +84,27 @@
 
             <!-- If ther's time handle the select statment Deleting 
                 an option when it's choosed in the other select in the backend -->
-
+                
             <div class="sourceStation-and-destinationStaion">
 
                 <div class="source">
                     <label for="source">Source Station</label>
                     <br>
                     <select name="sourceStation" id="source" required>
-
-                        <optgroup label="From Cairo">
-                            <option value="station1">Ramses Station </option>
-                            <option value="station2">Attaba</option>
-                            <option value="station3">Orabi</option>
+                    
+                        <optgroup label="Source Stations">
+                        <?php   $sourceStationsSQL = "SELECT source FROM stations";
+                        $result = $conn->query($sourceStationsSQL);
+                        
+                        while($row = $result->fetch_assoc()){
+                            echo "<option value = ".$row['source'].">".$row['source']."</option>"; 
+                        }
+                            
+                        ?>
+                            
                         </optgroup>
 
-                        <optgroup label="From alexanderia">
-                            <option value="station4">Sidi Gaber Railway Station</option>
-                            <option value="station5">El Sook Train Station</option>
-                            <option value="station6">El Hadra El Baharia Train Station</option>
-                        </optgroup>
-
-                        <optgroup label="From Sahel">
-                            <option value="station7">El Rokab El Bahareya Station</option>
-                            <option value="station8">El Metras Station</option>
-                            <option value="station9">El Rasafa Metro Stration</option>
-                        </optgroup>
-
-                        <optgroup label="From Dahab">
-                            <option value="station10">Nuweibaa Station</option>
-                            <option value="station11">Dar dahab Station</option>
-                            <option value="station12">Abou galom Station</option>
-                        </optgroup>
-
-                        <optgroup label="From Tanta">
-                            <option value="station4">Kafr El Sheikh Selim Train Station</option>
-                            <option value="station5">Quesna Train Station</option>
-                            <option value="station6">Manshyet El-Bakry Train Station</option>
-                        </optgroup>
+                        
 
                     </select>
                 </div>
@@ -77,36 +113,19 @@
                     <label for="destination">Destination Station</label>
                     <br>
                     <select name="destinationStation" id="destination" required >
+                        
 
-                        <optgroup label="To Cairo">
-                            <option value="station1">Ramses Station </option>
-                            <option value="station2">Attaba Staion</option>
-                            <option value="station3">Orabi Station</option>
-                        </optgroup>
-
-                        <optgroup label="To alexanderia">
-                            <option value="station4">Sidi Gaber Railway Station</option>
-                            <option value="station5">El Sook Station</option>
-                            <option value="station6">El Hadra El Baharia Station</option>
-                        </optgroup>
-
-                        <optgroup label="To Sahel">
-                            <option value="station7">El Rokab El Bahareya Station</option>
-                            <option value="station8">El Metras Station</option>
-                            <option value="station9">El Rasafa Metro Stration</option>
-                        </optgroup>
-
-                        <optgroup label="To Dahab">
-                            <option value="station10">Nuweibaa Station</option>
-                            <option value="station11">Dar dahab Station</option>
-                            <option value="station12">Abou galom Station</option>
-                        </optgroup>
-
-                        <optgroup label="To Tanta">
-                            <option value="station4">Kafr El Sheikh Selim Station</option>
-                            <option value="station5">Quesna Station</option>
-                            <option value="station6">Manshyet El-Bakry Station</option>
-                        </optgroup>
+                        <optgroup label="Destination Stations">
+                        <?php   $destinationStationsSQL = "SELECT destination FROM stations";
+                        $result = $conn->query($destinationStationsSQL);
+                        
+                        while($row = $result->fetch_assoc()){
+                            echo "<option value = ".$row['destination'].">".$row['destination']."</option>"; 
+                        }
+                                
+                        ?>
+                           
+                        
                     </select>
                 </div>
             </div>
@@ -115,32 +134,32 @@
                 <div class="date">
                     <label for="date">Date</label>
                     <br>
-                    <input type="date" id="date" required>
+                    <input type="date" id="date" name = 'date' required>
                 </div>
 
                 <div class="time">
                     <label for="time">Time</label>
                     <br>
-                    <input type="time" id="time" required>
+                    <input type="time"  id="time" name = 'time' required>
                 </div>
             </div>
 
             <div class="oneWay-twoWay">
-                <input id="oneWay" type="radio" value="trip" name="way" required>
+                <input id="oneWay" type="radio" value="One Way" name="way" required>
                 <label for="oneWay">One way trip</label>
 
                 <br>
 
-                <input id="twoWay" type="radio" value="trip" name="way" required>
+                <input id="twoWay" type="radio" value="Two Way" name="way" required>
                 <label for="twoWay">Two way trip</label>
             </div>
             <div class="firstClass-secondClass">
-                <input id="firstClass" type="radio" value="classLevel" name="class" required>
+                <input id="firstClass" type="radio" value="First Class" name="class" required>
                 <label for="firstClass">1st - Class Carriage</label>
 
                 <br>
 
-                <input id="secondClass" type="radio" value="classLevel" name="class" required>
+                <input id="secondClass" type="radio" value="Second Class" name="class" required>
                 <label for="secondClass">2nd - Class Carriage</label>
             </div>
 
@@ -148,7 +167,7 @@
 
             <div class="no-of-tickets">
                 <label for="noTickets">Enter the number of tickets: </label>
-                <input id="noTickets" type="number" max="20" min="1" step="1" value="1">
+                <input id="noTickets" type="number" name = 'ticketCount' max="20" min="1" step="1" value="1">
             </div>
 
             <div class="ticket-price">
@@ -159,10 +178,11 @@
 
 
             <div class="submit-and-reset">
-                <input type="submit" value="Book Now" id="submit">
+                <input type="submit" value="Book Now" id="submit" name = 'submit'>
 
                 <!-- <input type="reset" value="Reset" id="reset"> -->
             </div>
+
 
         </div>
 
@@ -171,7 +191,53 @@
     <br>
     <br>
     <br>
-    <?php include 'footer.php';?>
+    <?php 
+    if(isset($_POST['submit'])){
+   
+
+        $source = $_POST['sourceStation'];
+        $destination = $_POST['destinationStation'];
+        $date = $_POST['date'];
+        $time = $_POST['time'];
+        $trip_type_retriever = $_POST['way'];
+        $trip_class_retriever = $_POST['class'];
+        $ticketCount = $_POST['ticketCount'];
+        
+        if($trip_type_retriever == "One Way")
+            $tripType = "One way trip";
+        else if($trip_type_retriever == "Two Way")
+            $tripType = "Two way trip"; 
+
+        
+        if($trip_class_retriever == "First Class" )
+            $tripClass = "1st - Class Carriage";
+        else if($trip_class_retriever == "Second Class")
+            $tripClass = "2nd - Class Carriage";
+    
+        
+    
+        
+        
+        $query = "INSERT INTO tickets (source, destination, date, time, trip_type, trip_class, ticketCount) 
+        VALUES 
+        ('$source' , '$destination', '$date', '$time', '$tripType', '$tripClass', '$ticketCount')";
+    
+        $sql = mysqli_query($conn,$query);
+            if($sql){
+                echo "Ticket Booked Succesfully!";
+                echo "<script>alert('Ticket booked successfully!');</script>";
+            }
+        else
+            echo "Ticket not booked!, check for errors";
+    
+       
+    
+    
+        
+    }
+    
+    ?>
+    
 </body>
 
 </html>
