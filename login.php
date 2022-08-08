@@ -75,14 +75,26 @@ session_start();
         $row = mysqli_fetch_array($exec);
         
         
-        if($row['user_email'] == $email && $row['user_password'] == $password){
+        if($row['user_email'] == $email && $row['user_password'] == $password && $row['user_type'] == ""){
 
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['user_name'];
             $_SESSION['user_email'] = $row['user_email'];
+            $_SESSION['user_phone'] = $row['user_phone'];
             
             echo "Hello, " . $row['user_name'];
             header("Location: index.php");
+
+            
+        }
+        else if($row['user_email'] == $email && $row['user_password'] == $password && $row['user_type'] == "Admin"){
+          $_SESSION['user_id'] = $row['id'];
+          $_SESSION['username'] = $row['user_name'];
+          $_SESSION['user_email'] = $row['user_email'];
+          $_SESSION['user_phone'] = $row['user_phone'];
+          
+          echo "Hello Admin, " . $row['user_name'];
+          header("Location: admin-panel/admin-panel.php");
         }
         else{
             echo "Login unsuccessful, please enter valid credentials";

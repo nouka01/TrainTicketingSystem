@@ -8,8 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Training Studio</title>
   <link rel="stylesheet" href="css/navbar.css" />
-  <link rel="stylesheet" href="css/index.css" />
-  
+
   
 
 </head>
@@ -39,6 +38,7 @@
       <li><a href="book-a-ticket.php">Ticket</a><li>
       <li><a href="cu.php">Contact us</a></li>
       <li> <a href="logout.php">Logout</li></a>
+      <li> <a href="profile.php">My Profile</li></a>
       <?php endif;?>
 
 
