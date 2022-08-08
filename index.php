@@ -88,50 +88,7 @@
     </div>
   </div>
   <!-- End Classes -->
-  <!-- Start Schedule -->
-  <!-- <div class="schedule">
-    <div class="container">
-      <div class="special-heading diff-heading">
-
-        <img src="images/line-dec.png" alt="" />
-
-      </div>
-
-      <table>
-        <tr>
-          <td></td>
-          <td>10:00AM - 11:30AM</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td>2:00PM - 3:30PM</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
-    </div>
-  </div> -->
-  <!-- End Schedule -->
+ 
   <!-- Start Contact -->
   <div class="contact">
     <div class="container">
