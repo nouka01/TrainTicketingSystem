@@ -5,9 +5,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Book a ticket form</title>
     <link rel="stylesheet" href="css/book-ticket-stylesheet.css">
-   
+
+    <script>  
+    var today=new Date();
+    var todayDate=today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+    function validateform(){  
+    var date=document.bookticket.date.value;  
+    var time=document.bookticket.time.value;  
+    var way=document.bookticket.way.value;  
+    var cariage=document.bookticket.cariage.value;  
+    var ticketCount=document.bookticket.ticketCount.value;  
+    
+    if (date==null || date==""){  
+        alert("Date can't be blank.");  
+    return false;  
+    }
+    else if(date<=todayDate){
+        alert("Date can't be in the past.");  
+    return false;  
+    }
+    else if(time==null || time==""){  
+        alert("Time can't be blank.");  
+    return false;  
+    }  
+    else if(way==null || way==""){  
+        alert("Choose wether The trip is one way or two way.");  
+    return false;  
+
+    }  
+    else if(cariage==null || cariage==""){  
+        alert("Choose a Class cariage option.");  
+    return false;  
+    }  
+    else if(ticketCount<=0 || ticketCount>30){  
+        alert("Choose sufficient number of tickets.");  
+    return false;  
+    }  
+    }  
+</script>  
+
 
 </head>
 <?php session_start();
@@ -26,59 +65,8 @@
         <h1><b>Book your ticket here!</b></h1>
     </div>
 
-    <form action = "" method="post">
+    <form name="bookticket" action = "" method="post"  onsubmit="return validateform()" >
         <div class="user-input">
-
-            <div class="User-name">
-                <div class="fn">
-                    <label for="fn">First Name</label>
-                    <br>
-                    <input type="text" name="firstName" id="fn"  disabled autofocus placeholder="Enter your First name "
-                        maxlength="20">
-                </div>
-
-                <div class="ln">
-                    <label for="ln">Last Name</label>
-                    <br>
-                    <input type="text" name="lastName" id="ln"  disabled placeholder="Enter your Last name"
-                        maxlength="20">
-                </div>
-
-            </div>
-
-            <div class="Email-and-phoneNumber">
-                <div class="email">
-                    <label for="mail">Email</label>
-                    <br>
-                    <input type="email" name="email" id="mail" disabled  placeholder="Enter your E-mail" maxlength="40">
-                </div>
-
-                <div class="number">
-                    <label for="pn"> Phone Number</label>
-                    <br>
-                    <input type="number" name="pn" id="pn" disabled  placeholder="Enter your number" maxlength="15">
-                </div>
-
-            </div>
-
-            <div class="city-and-address">
-                <div class="city">
-                    <label for="city">City</label>
-                    <br>
-                    <input type="text" name="city" id="city" disabled placeholder="ex: Nasr-city" maxlength="20">
-                </div>
-
-                <div class="address">
-                    <label for="address"> Address</label>
-                    <br>
-                    <input type="text" name="address" id="address" disabled placeholder="Enter your addres"
-                        maxlength="100">
-                </div>
-            </div>
-
-
-            <hr>
-
 
             <div class="radio-buuton-header">
                 <p class="p2"><b>Trip Details</b></p>
@@ -95,7 +83,8 @@
                     <select name="sourceStation" id="source" required>
                     
                         <optgroup label="Source Stations">
-                        <?php   $sourceStationsSQL = "SELECT source FROM stations";
+                        <?php  
+                         $sourceStationsSQL = "SELECT source FROM stations";
                         $result = $conn->query($sourceStationsSQL);
                         
                         while($row = $result->fetch_assoc()){
@@ -118,7 +107,8 @@
                         
 
                         <optgroup label="Destination Stations">
-                        <?php   $destinationStationsSQL = "SELECT destination FROM stations";
+                        <?php   
+                        $destinationStationsSQL = "SELECT destination FROM stations";
                         $result = $conn->query($destinationStationsSQL);
                         
                         while($row = $result->fetch_assoc()){
@@ -136,32 +126,32 @@
                 <div class="date">
                     <label for="date">Date</label>
                     <br>
-                    <input type="date" id="date" name = 'date' required>
+                    <input type="date" id="date" name = 'date'>
                 </div>
 
                 <div class="time">
                     <label for="time">Time</label>
                     <br>
-                    <input type="time"  id="time" name = 'time' required>
+                    <input type="time"  id="time" name = 'time'>
                 </div>
             </div>
 
             <div class="oneWay-twoWay">
-                <input id="oneWay" type="radio" value="One Way" name="way" required>
+                <input id="oneWay" type="radio" value="One Way" name="way">
                 <label for="oneWay">One way trip</label>
 
                 <br>
 
-                <input id="twoWay" type="radio" value="Two Way" name="way" required>
+                <input id="twoWay" type="radio" value="Two Way" name="way">
                 <label for="twoWay">Two way trip</label>
             </div>
             <div class="firstClass-secondClass">
-                <input id="firstClass" type="radio" value="First Class" name="class" required>
+                <input id="firstClass" type="radio" value="First Class" name="cariage" >
                 <label for="firstClass">1st - Class Carriage</label>
 
                 <br>
 
-                <input id="secondClass" type="radio" value="Second Class" name="class" required>
+                <input id="secondClass" type="radio" value="Second Class" name="cariage">
                 <label for="secondClass">2nd - Class Carriage</label>
             </div>
 
@@ -169,7 +159,7 @@
 
             <div class="no-of-tickets">
                 <label for="noTickets">Enter the number of tickets: </label>
-                <input id="noTickets" type="number" name = 'ticketCount' max="20" min="1" step="1" value="1">
+                <input id="noTickets" type="number" name = 'ticketCount' value="1">
             </div>
 
             <div class="ticket-price">
@@ -184,12 +174,9 @@
 
                 <!-- <input type="reset" value="Reset" id="reset"> -->
             </div>
-
-
         </div>
-
-
     </form>
+
     <br>
     <br>
     <br>
@@ -226,15 +213,10 @@
     
         $sql = mysqli_query($conn,$query);
             if($sql){
-                echo "Ticket Booked Succesfully!";
                 echo "<script>alert('Ticket booked successfully!');</script>";
             }
         else
             echo "Ticket not booked!, check for errors";
-    
-       
-    
-    
         
     }
     
@@ -243,3 +225,4 @@
 </body>
 
 </html>
+

@@ -5,9 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="admin-panel.css">
+  <link rel="stylesheet" href="CSS/admin-panel.css">
   <title>Admin pannel</title>
 </head>
+
+<?php session_start();
+    include 'navbar.php';?>
 
 <body>
   <div class="sidenav">
@@ -23,7 +26,7 @@
     <div class="three-squares">
       <div class="square1">
         <div class="text1">
-          <p>Total Number Of Users:-</p>
+          <p>Users Count:-</p>
           <h4 name="numberOfUsers" class="heading4"><span>10</span> User</h4>
         </div>
       </div>

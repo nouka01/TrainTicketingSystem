@@ -37,6 +37,44 @@ if (isset($_POST['save'])) {
    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script>  
+    function validateform(){  
+    var profileusername=document.myProfile.profileusername.value;
+
+    var profileemail=document.myProfile.profileemail.value;  
+
+    var atposition=profileemail.indexOf("@");  
+    var dotposition=profileemail.lastIndexOf(".");  
+
+    var profilephone=document.myProfile.profilephone.value;  
+    
+    if (profileusername==null || profileusername==""){  
+        alert("Name can't be blank.");  
+    return false;  
+    }
+    else if(!isNaN(profileusername)){
+        alert("Enter a valid name");  
+    return false;  
+    }
+    else if(profileemail==null||profileemail==""){
+        alert("E-mail can't be blank.");  
+    return false;  
+    }
+    else if(atposition<1 || dotposition<atposition+2 || dotposition+2>=profileemail.length){  
+        alert("Enter a valid E-mail.");  
+    return false;  
+    }  
+    else if(profilephone==null || profilephone==""){  
+        alert("PhoneNumber can't be blank.");  
+    return false;  
+    }  
+    else if(isNaN(profilephone)){
+        alert("Enter a valid PhoneNumber");  
+    return false;  
+    }
+    }  
+</script>  
 </head>
 <body>
 <div class="container">
@@ -52,7 +90,7 @@ if (isset($_POST['save'])) {
 <div class="d-flex flex-column align-items-center text-center">
 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
 <div class="mt-3">
-<h4>John Doe</h4>
+<h4 >John Doe</h4>
 <p class="text-secondary mb-1">Full Stack Developer</p>
 <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
 <button class="btn btn-primary">Upload photo</button>
@@ -78,7 +116,7 @@ if (isset($_POST['save'])) {
 <h6>Username</h6>
 </div>
 <div class="col-sm-9 text-secondary">
-    <form action = "" method = 'POST'>
+    <form name="myProfile" action = "" method = 'POST' novalidate onsubmit="return validateform()">
         <?php 
         $currentUserName = $_SESSION['username'];?>
 <input type="text" id="fname" name="profileusername" value = "<?php echo $currentUserName;?>"><br>

@@ -94,7 +94,7 @@ session_start();
           $_SESSION['user_phone'] = $row['user_phone'];
           
           echo "Hello Admin, " . $row['user_name'];
-          header("Location: admin-panel/admin-panel.php");
+          header("Location: admin-panel.php");
         }
         else{
             echo "Login unsuccessful, please enter valid credentials";

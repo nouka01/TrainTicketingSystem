@@ -5,12 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Train book ticket</title>
-    <link rel="stylesheet" href="train-ticket-stylesheet.css">
+    <link rel="stylesheet" href="CSS/train-ticket-stylesheet.css">
 </head>
-
+<?php 
+session_start();
+    include 'navbar.php';
+    ?>
+    
 <body>
 
-    <div class="header">
+    <div class="main-header">
+    <h1>User Tickets</h1>
+    </div>
+    <div class="header1">
         <h1>TRAIN TICKET</h1>
     </div>
     <div class="whole-ticket">
