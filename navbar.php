@@ -36,7 +36,6 @@
       if (isset($_SESSION['user_id'])):
     ?>
       <li> <a href="index.php">Home</li></a>
-      <li> <a href="admin-panel.php">Admin Panel</li></a>
       <li><a href="book-a-ticket.php">Ticket</a><li>
         <li> <a href="train-ticket.php">My Tickets</li></a>
         <li> <a href="profile.php">My Profile</li></a>

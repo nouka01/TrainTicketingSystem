@@ -23,10 +23,10 @@
         alert("Date can't be blank.");  
     return false;  
     }
-    else if(date<=todayDate){
-        alert("Date can't be in the past.");  
-    return false;  
-    }
+    // else if(date<=todayDate){
+    //     alert("Date can't be in the past.");  
+    // return false;  
+    //}
     else if(time==null || time==""){  
         alert("Time can't be blank.");  
     return false;  
