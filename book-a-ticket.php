@@ -189,7 +189,7 @@
         $date = $_POST['date'];
         $time = $_POST['time'];
         $trip_type_retriever = $_POST['way'];
-        $trip_class_retriever = $_POST['class'];
+        $trip_class_retriever = $_POST['cariage'];
         $ticketCount = $_POST['ticketCount'];
         
         if($trip_type_retriever == "One Way")
