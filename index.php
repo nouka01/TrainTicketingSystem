@@ -26,8 +26,15 @@
       <source src="images/production ID_4550475.mp4" />
     </video>
     <div class="text-box">
-    <p> <?php echo "Hello, ". $_SESSION['username'];?> </p>
-      <p>WORK HARDER, GET STRONGER </p>
+    <p> <?php $helloMsg = "Hello" ;
+    
+    if(isset($_SESSION['user_id'])){
+      $helloMsg = $helloMsg . ",". $_SESSION['username'];
+    }
+    echo $helloMsg;
+    
+    ?> </p>
+      
       
       <h1>EASY WITH OUR <span>Train Station</span></h1>
       <a href="Signup.php">BECOME A MEMBER</a>

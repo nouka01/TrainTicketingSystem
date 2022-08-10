@@ -25,7 +25,7 @@
       if (!isset($_SESSION['user_id'])):
     ?>
       <li><a href="index.php">Home</li></a>
-      <li><a href="book-a-ticket.php">Ticket</a><li>
+      
       <li><a href="cu.php">Contact us</a></li>
       <li><a href="Signup.php">Signup</a>
       <li><a href="login.php">Login</a>

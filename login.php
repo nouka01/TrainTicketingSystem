@@ -75,12 +75,14 @@ session_start();
         $row = mysqli_fetch_array($exec);
         
         
-        if($row['user_email'] == $email && $row['user_password'] == $password && $row['user_type'] == ""){
+        if($row['user_email'] == $email && $row['user_password'] == $password && $row['user_type'] == "User"){
 
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['user_name'];
             $_SESSION['user_email'] = $row['user_email'];
             $_SESSION['user_phone'] = $row['user_phone'];
+            $_SESSION['user_type'] = $row['user_type'];
+            $_SESSION['hasTicket'] = $row['hasTicket'];
             
             echo "Hello, " . $row['user_name'];
             header("Location: index.php");
@@ -92,6 +94,7 @@ session_start();
           $_SESSION['username'] = $row['user_name'];
           $_SESSION['user_email'] = $row['user_email'];
           $_SESSION['user_phone'] = $row['user_phone'];
+          $_SESSION['user_type'] = $row['user_type'];
           
           echo "Hello Admin, " . $row['user_name'];
           header("Location: admin-panel.php");

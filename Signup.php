@@ -71,20 +71,23 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
     $phone = $_POST['phone'];
+    $userType = "User";
+    $hasTicket = 0;
+
 
     $selectEmailFromDB = mysqli_query($conn, "SELECT * FROM users WHERE user_email = '".$email."'");
         if(mysqli_num_rows($selectEmailFromDB)) {
             die('This email already exists!');
         }
 
-    $query = "INSERT INTO users (user_name, user_email, user_password, user_phone) 
+    $query = "INSERT INTO users (user_name, user_email, user_password, user_phone, user_type, hasTicket) 
     VALUES 
-    ('$username' , '$email', '$password', '$phone')";
+    ('$username' , '$email', '$password', '$phone' ,'$userType', '$hasTicket')";
 
     $sql = mysqli_query($conn,$query);
         if($sql){
             echo "Successful SignUp";
-            header("Location: index.php");
+            header("Location: login.php");
         }
     else
         echo "Registration Unsuccessful";
