@@ -214,6 +214,7 @@
         $sql = mysqli_query($conn,$query);
             if($sql){
                 echo "<script>alert('Ticket booked successfully!');</script>";
+                header("Location: train-ticket.php");
             }
         else
             echo "Ticket not booked!, check for errors";
