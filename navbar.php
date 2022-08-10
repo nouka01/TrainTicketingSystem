@@ -24,7 +24,7 @@
     <?php // Check if user is NOT logged in, then show the navigation bar that contains the login and signup hyperlinks
       if (!isset($_SESSION['user_id'])):
     ?>
-      <li> <a href="index.php">Home</li></a>
+      <li><a href="index.php">Home</li></a>
       <li><a href="book-a-ticket.php">Ticket</a><li>
       <li><a href="cu.php">Contact us</a></li>
       <li><a href="Signup.php">Signup</a>
@@ -36,7 +36,7 @@
       if (isset($_SESSION['user_id'])):
     ?>
       <li> <a href="index.php">Home</li></a>
-      <li><a href="book-a-ticket.php">Ticket</a><li>
+      <li><a href="book-a-ticket.php">Book A Ticket</a><li>
         <li> <a href="train-ticket.php">My Tickets</li></a>
         <li> <a href="profile.php">My Profile</li></a>
         <li><a href="cu.php">Contact us</a></li>

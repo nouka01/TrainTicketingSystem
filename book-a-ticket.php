@@ -84,11 +84,11 @@
                     
                         <optgroup label="Source Stations">
                         <?php  
-                         $sourceStationsSQL = "SELECT source FROM stations";
+                         $sourceStationsSQL = "SELECT stations FROM stations";
                         $result = $conn->query($sourceStationsSQL);
                         
                         while($row = $result->fetch_assoc()){
-                            echo "<option value = ".$row['source'].">".$row['source']."</option>"; 
+                            echo "<option value = ".$row['stations'].">".$row['stations']."</option>"; 
                         }
                             
                         ?>
@@ -108,11 +108,11 @@
 
                         <optgroup label="Destination Stations">
                         <?php   
-                        $destinationStationsSQL = "SELECT destination FROM stations";
+                        $destinationStationsSQL = "SELECT stations FROM stations";
                         $result = $conn->query($destinationStationsSQL);
                         
                         while($row = $result->fetch_assoc()){
-                            echo "<option value = ".$row['destination'].">".$row['destination']."</option>"; 
+                            echo "<option value = ".$row['stations'].">".$row['stations']."</option>"; 
                         }
                                 
                         ?>
