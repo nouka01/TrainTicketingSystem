@@ -37,40 +37,39 @@
                 <tbody>
                     <tr>
                         <td>Dummy Station</td>
-                        <td>Dummy Station</td>
                     </tr>
                     <tr class="grey-tr">
                         <td>Dummy Station</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Dummy Station</td>
+                    </tr>
+                    <tr class="grey-tr">
+
                         <td>Dummy Station</td>
                     </tr>
                     <tr>
                         <td>Dummy Station</td>
-                        <td>Dummy Station</td>
-                    </tr>
-                    <tr class="grey-tr">
-                        <td>Dummy Station</td>
-                        <td>Dummy Station</td>
-                    </tr>
-                    <tr>
-                        <td>Dummy Station</td>
-                        <td>Dummy Station</td>
+
 
 
                     </tr>
                     <tr class="grey-tr">
                         <td>Dummy Station</td>
-                        <td>Dummy Station</td>
+
 
 
                     </tr>
                     <tr>
                         <td>Dummy Station</td>
-                        <td>Dummy Station</td>
+
 
 
                     </tr>
                     <tr class="grey-tr">
-                        <td>Dummy Station</td>
+
                         <td>Dummy Station</td>
                     </tr>
 
@@ -84,10 +83,10 @@
         <div class="button-to-add-station">
             <button id="add-station-button" onclick="openForm()">Add Station</button>
         </div>
-
+<!-- 
         <div class="button-to-delete-station">
             <input id="delete-station-button" type="button" value="Delete Station">
-        </div>
+        </div> -->
         
     </div>
 
