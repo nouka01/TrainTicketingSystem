@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+include 'navbar.php';
+$loggedUserId = $_SESSION['user_id'];
+require_once 'database/dbConnection.php';
+$sqlLine = "SELECT * FROM users WHERE id = '".$loggedUserId."'  ";
+$result = mysqli_query($conn, $sqlLine);
+$row = mysqli_fetch_array($result);
+
+if($row['hasTicket'] == 1):
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,14 +22,33 @@
     <link rel="stylesheet" href="CSS/train-ticket-stylesheet.css">
 </head>
 <?php 
-session_start();
-    include 'navbar.php';
+
+    
     ?>
+
+<?php
+
+
+$loggedUserID = $_SESSION['user_id'];
+$sql = "SELECT * FROM tickets WHERE by_user_id = '".$loggedUserID."' ";
+$result = mysqli_query($conn,$sql);
+
+
+
+$row = mysqli_fetch_array($result);
+
+
+
+
+
+
+
+?>
     
 <body>
 
     <div class="main-header">
-    <h1>User Tickets</h1>
+    <h1><?php $row['source']; ?></h1>
     </div>
     <div class="header1">
         <h1>TRAIN TICKET</h1>
@@ -25,14 +58,14 @@ session_start();
             <div class="passenger-name">
                 <label for="name">NAME OF PASSENGER:</label>
     
-                <input type="text" id="name" value="Dummy name" name="name" maxlength="20" minlength="2" disabled>
+                <input type="text" id="name" value='<?php echo $_SESSION['username'];?>' name="name" maxlength="20" minlength="2" disabled>
             </div>
 
 
             <div class="train-date">
                 <label for="date">DATE:</label>
     
-                <input type="date" id="date" name="date" maxlength="20" minlength="2" disabled>
+                <input type="date" id="date" value = '<?php echo $row['date'];?>' name="date" maxlength="20" minlength="2" disabled>
             </div>
         </div>
 
@@ -58,13 +91,13 @@ session_start();
             <div class="from">
                 <label for="from">FROM:</label>
     
-                <input type="text" id="from" value="Dummy Source station" name="from" maxlength="20" minlength="2" disabled>
+                <input type="text" id="from" value='<?php echo $row['source'];?>' name="from" maxlength="20" minlength="2" disabled>
             </div>
 
             <div class="to">
                 <label for="to">TO:</label>
     
-                <input type="text" id="to" value="Dummy destination station" name="to" maxlength="20" minlength="2" disabled>
+                <input type="text" id="to" value='<?php echo $row['destination'];?>' name="to" maxlength="20" minlength="2" disabled>
             </div>
 
             <!-- <div class="filler-div">
@@ -78,18 +111,28 @@ session_start();
             <div class="depart-time">
                 <label for="depart">DEPART TIME:</label>
     
-                <input type="time" id="depart" name="depart" maxlength="20" minlength="2" disabled>
+                <input type="time" id="depart" value = '<?php echo $row['time'];?>'name="depart" maxlength="20" minlength="2" disabled>
             </div>
 
             <div class="class-degree">
                 <label for="class">CLASS:</label>
     
-                <input type="text" id="class" value="x-Class" name="class" maxlength="20" minlength="2" disabled>
+                <input type="text" id="class" value='<?php echo $row['trip_class'];?>' name="class" maxlength="20" minlength="2" disabled>
             </div>
+            
         </div>
+        
     </div>
     <div class="footer"></div>
-
+    <p><?php    echo "Number of tickets: ".$row['ticketCount'];    ?></p><br>
+    <p><?php    echo "Trip Type: " .$row['trip_type'];?></p>
+    
 </body>
 
+<?php   
+
+
+else: echo "<p><br><br><br><br>You have no tickets!</p><br><br><br>";
+    echo "<a href = 'book-a-ticket.php'> Press here to book a ticket now!</a>";
+        endif;    ?>
 </html>
