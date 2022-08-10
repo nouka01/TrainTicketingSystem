@@ -205,16 +205,19 @@
     
         
     
+        $byUser = $_SESSION['user_id'];
         
-        
-        $query = "INSERT INTO tickets (source, destination, date, time, trip_type, trip_class, ticketCount) 
+        $query = "INSERT INTO tickets (by_user_id, source, destination, date, time, trip_type, trip_class, ticketCount) 
         VALUES 
-        ('$source' , '$destination', '$date', '$time', '$tripType', '$tripClass', '$ticketCount')";
+        ('$byUser' , '$source',  '$destination', '$date', '$time', '$tripType', '$tripClass', '$ticketCount')";
+        $userHasTicket = 1;
+        $query2 = "UPDATE users SET hasTicket = '$userHasTicket' WHERE id = '$byUser' ";
+        
     
         $sql = mysqli_query($conn,$query);
-            if($sql){
+        $sql2 = mysqli_query($conn,$query2);
+            if($sql && $sql2){
                 echo "<script>alert('Ticket booked successfully!');</script>";
-                header("Location: train-ticket.php");
             }
         else
             echo "Ticket not booked!, check for errors";
