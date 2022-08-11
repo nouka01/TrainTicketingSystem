@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/cu.css">
-<link rel="stylesheet" href="css/index.css">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,9 @@ include 'navbar.php';?>
                     <input class="main-input" type="text" name="name" placeholder="Your Name">
                     <input class="main-input" type="email" name="mail" placeholder="Your Email">
                     <textarea class="main-input" name="message" placeholder="Your Message"></textarea>
-                    <input type="submit" value="Send Message">
+                    <input type="button" value="Send Message">
+                    
+                    
                 </form>
                 <div class="info">
                     <h4>Get In Touch</h4>
