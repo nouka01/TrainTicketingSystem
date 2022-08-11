@@ -31,49 +31,43 @@
 
                 <thead>
                     <tr>
-                        <th colspan="2">Stations</th>
+                        <th class="special-head">#ID</th>
+                        <th>Stations</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td>#1</td>
                         <td>Dummy Station</td>
                     </tr>
                     <tr class="grey-tr">
-                        <td>Dummy Station</td>
-
-                    </tr>
-                    <tr>
-
-                        <td>Dummy Station</td>
-                    </tr>
-                    <tr class="grey-tr">
-
+                        <td>#2</td>
                         <td>Dummy Station</td>
                     </tr>
                     <tr>
+                        <td>#3</td>
                         <td>Dummy Station</td>
-
-
-
                     </tr>
                     <tr class="grey-tr">
+                        <td>#4</td>
                         <td>Dummy Station</td>
-
-
-
+                    </tr>
+                    <tr>                        
+                        <td>#5</td>
+                        <td>Dummy Station</td>
+                    </tr>
+                    <tr class="grey-tr">
+                        <td>#6</td>
+                        <td>Dummy Station</td>
                     </tr>
                     <tr>
+                        <td>#7</td>
                         <td>Dummy Station</td>
-
-
-
                     </tr>
                     <tr class="grey-tr">
-
+                        <td>#8</td>
                         <td>Dummy Station</td>
                     </tr>
-
-
                 </tbody>
             </table>
         </div>

@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="css/book-ticket-stylesheet.css">
 
     <script>  
-    var today=new Date();
-    var todayDate=today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+ 
 
     function validateform(){  
     var date=document.bookticket.date.value;  
@@ -18,15 +17,35 @@
     var way=document.bookticket.way.value;  
     var cariage=document.bookticket.cariage.value;  
     var ticketCount=document.bookticket.ticketCount.value;  
-    
-    if (date==null || date==""){  
+    var sourceStation=document.bookticket.sourceStation.value;  
+    var destinationStation=document.bookticket.destinationStation.value;  
+
+    const currentDate = new Date();
+    let day = currentDate.getDate();
+    let month = currentDate.getMonth() + 1;
+    let year = currentDate.getFullYear();
+    let year1 = currentDate.getFullYear()+3;
+
+    let currentDateWithFormat = `${year}-0${month}-${day}`;
+    let currentDateWithFormat2 = `${year1}-0${month}-${day}`;
+
+
+    if(sourceStation==destinationStation){  
+        alert("Source and Destination staion can't be the same.");  
+    return false;  
+    }    
+    else if (date==null || date==""){  
         alert("Date can't be blank.");  
     return false;  
     }
-    // else if(date<=todayDate){
-    //     alert("Date can't be in the past.");  
-    // return false;  
-    //}
+    else if(date <= currentDateWithFormat){
+        alert("Date can't be in the past.");  
+    return false;  
+    }
+    else if(date >= currentDateWithFormat2){
+        alert("Date have to be earlier than that!");  
+    return false;  
+    }
     else if(time==null || time==""){  
         alert("Time can't be blank.");  
     return false;  
@@ -44,7 +63,15 @@
         alert("Choose sufficient number of tickets.");  
     return false;  
     }  
-    }  
+}
+
+function hideShowReturnTime(val) {
+  if (val == "twoWay") {
+    document.getElementById("returnDateJS").style.display = "inline-block";
+  } else {
+    document.getElementById("returnDateJS").style.display = "none";
+  }
+}
 </script>  
 
 
@@ -71,10 +98,7 @@
             <div class="radio-buuton-header">
                 <p class="p2"><b>Trip Details</b></p>
             </div>
-
-            <!-- If ther's time handle the select statment Deleting 
-                an option when it's choosed in the other select in the backend -->
-                
+            
             <div class="sourceStation-and-destinationStaion">
 
                 <div class="source">
@@ -94,9 +118,6 @@
                         ?>
                             
                         </optgroup>
-
-                        
-
                     </select>
                 </div>
 
@@ -124,9 +145,15 @@
 
             <div class="date-and-time">
                 <div class="date">
-                    <label for="date">Date</label>
+                    <label for="date">Deprature Date</label>
                     <br>
                     <input type="date" id="date" name = 'date'>
+                </div>
+
+                <div class="returning-date" id="returnDateJS">
+                    <label for="return-date">Return Date</label>
+                    <br>
+                    <input type="date" id="return-date" name = 'returnDate'>
                 </div>
 
                 <div class="time">
@@ -137,16 +164,16 @@
             </div>
 
             <div class="oneWay-twoWay">
-                <input id="oneWay" type="radio" value="One Way" name="way">
+                <input id="oneWay" type="radio" value="One Way" name="way" checked onclick="hideShowReturnTime('oneWay');">
                 <label for="oneWay">One way trip</label>
 
                 <br>
 
-                <input id="twoWay" type="radio" value="Two Way" name="way">
+                <input id="twoWay" type="radio" value="Two Way" name="way" onclick="hideShowReturnTime('twoWay');">
                 <label for="twoWay">Two way trip</label>
             </div>
             <div class="firstClass-secondClass">
-                <input id="firstClass" type="radio" value="First Class" name="cariage" >
+                <input id="firstClass" type="radio" value="First Class" name="cariage" checked >
                 <label for="firstClass">1st - Class Carriage</label>
 
                 <br>
@@ -158,7 +185,7 @@
 
 
             <div class="no-of-tickets">
-                <label for="noTickets">Enter the number of tickets: </label>
+                <label for="noTickets">Number of Passengers: </label>
                 <input id="noTickets" type="number" name = 'ticketCount' value="1">
             </div>
 

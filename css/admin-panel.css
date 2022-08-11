@@ -235,3 +235,7 @@ caption {
 .centering {
   text-align: center;
 }
+
+.special-head {
+  width: 50px;
+}

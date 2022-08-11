@@ -82,6 +82,7 @@ h1 {
 }
 
 .right-ticket-part {
+    margin-top: 0px;
     margin-left: 35px;
 }
 
@@ -114,3 +115,7 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+/* .train-date-return {
+    visibility: hidden;
+} */

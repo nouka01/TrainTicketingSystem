@@ -20,32 +20,28 @@ if($row['hasTicket'] == 1):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Train tickets</title>
     <link rel="stylesheet" href="CSS/train-ticket-stylesheet.css">
-</head>
-<?php 
 
-    
-    ?>
+<script>
+    function hideShowReturnTime(val) {
+    if (val == "Two way trip") {
+        document.getElementById("returningDateJS").style.visibility = "visible";
+    } else {
+        document.getElementById("returningDateJS").style.visibility = "hidden";
+    }
+}
+</script>
+</head>
 
 <?php
-
 
 $loggedUserID = $_SESSION['user_id'];
 $sql = "SELECT * FROM tickets WHERE by_user_id = '".$loggedUserID."' ";
 $result = mysqli_query($conn,$sql);
 
-
-
 $row = mysqli_fetch_array($result);
-
-
-
-
-
-
-
 ?>
     
-<body>
+<body onload="hideShowReturnTime('<?php echo $row['trip_type'];?>')">
 
     <div class="main-header">
     <h1><?php $row['source']; ?></h1>
@@ -61,12 +57,24 @@ $row = mysqli_fetch_array($result);
                 <input type="text" id="name" value='<?php echo $_SESSION['username'];?>' name="name" maxlength="20" minlength="2" disabled>
             </div>
 
+            <div class="no-of-tickets">
+                <label for="noOfTickets">TICKETS &numero;: </label>
+                <input id="noOfTickets" name="ticketCount" type="number" max="30" min="1" value="<?php echo $row['ticketCount'];?>">
+            </div>
+
 
             <div class="train-date">
-                <label for="date">DATE:</label>
+                <label for="date">DEPRATURE DATE:</label>
     
                 <input type="date" id="date" value = '<?php echo $row['date'];?>' name="date" maxlength="20" minlength="2" disabled>
             </div>
+
+            <div class="train-date-return" id="returningDateJS">
+                <label for="date">RETURNING DATE:</label>
+    
+                <input type="date" id="date" value ="" name="date" maxlength="20" minlength="2" disabled>
+            </div>
+
         </div>
 
         <div class="right-ticket-part">
@@ -88,6 +96,8 @@ $row = mysqli_fetch_array($result);
     
                 <input type="number" id="carriage" name="carriage-number" maxlength="20" minlength="2" value="101213" disabled>
             </div> -->
+
+
             <div class="from">
                 <label for="from">FROM:</label>
     
@@ -100,10 +110,16 @@ $row = mysqli_fetch_array($result);
                 <input type="text" id="to" value='<?php echo $row['destination'];?>' name="to" maxlength="20" minlength="2" disabled>
             </div>
 
-            <!-- <div class="filler-div">
+            <div class="one-way-two-way">
+                <label for="oneWayTwoWay">TRIP TYPE:</label>
+    
+                <input type="text" id="oneWayTwoWay" value="<?php echo $row['trip_type'];?>" name="trip_type" maxlength="20" minlength="2" disabled>
+            </div>
+            
+            <div class="filler-div">
     
                 <input type="text" disabled>
-            </div> -->
+            </div>
 
         </div>
 
@@ -124,9 +140,7 @@ $row = mysqli_fetch_array($result);
         
     </div>
     <div class="footer"></div>
-    <p><?php    echo "Number of tickets: ".$row['ticketCount'];    ?></p><br>
-    <p><?php    echo "Trip Type: " .$row['trip_type'];?></p>
-    
+
 </body>
 
 <?php   

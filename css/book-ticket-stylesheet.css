@@ -35,6 +35,7 @@ body {
 .destination,
 .date,
 .time,
+.returning-date,
 .oneWay-twoWay,
 .firstClass-secondClass {
     display: inline-block;
@@ -44,6 +45,7 @@ body {
 
 .source,
 .date,
+.returning-date,
 .oneWay-twoWay {
     margin-right: 150px;
 }
@@ -111,7 +113,8 @@ select {
     margin-right: 70px;
 }
 
-.date {
+.date,
+.returning-date {
     width: 340px;
     margin-right: auto;
 }
@@ -122,7 +125,8 @@ select {
 }
 
 #time,
-#date {
+#date,
+#return-date {
     padding: 5px 12px;
 }
 
@@ -154,4 +158,8 @@ input::-webkit-inner-spin-button {
 
 #twoWay {
     margin-left: 2.5px;
+}
+
+.returning-date {
+    display: none;
 }
