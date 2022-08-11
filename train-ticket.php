@@ -44,8 +44,10 @@ $row = mysqli_fetch_array($result);
 <body onload="hideShowReturnTime('<?php echo $row['trip_type'];?>')">
 
     <div class="main-header">
-    <h1><?php $row['source']; ?></h1>
+    <h1><?php echo $_SESSION['username'];?> Tickets</h1>
     </div>
+
+
     <div class="header1">
         <h1>TRAIN TICKET</h1>
     </div>
@@ -58,13 +60,13 @@ $row = mysqli_fetch_array($result);
             </div>
 
             <div class="no-of-tickets">
-                <label for="noOfTickets">TICKETS &numero;: </label>
+                <label for="noOfTickets">NUMBER OF PASSENGERS &numero;: </label>
                 <input id="noOfTickets" name="ticketCount" type="number" max="30" min="1" value="<?php echo $row['ticketCount'];?>">
             </div>
 
 
             <div class="train-date">
-                <label for="date">DEPRATURE DATE:</label>
+                <label for="date">DEPRAT DATE:</label>
     
                 <input type="date" id="date" value = '<?php echo $row['date'];?>' name="date" maxlength="20" minlength="2" disabled>
             </div>
@@ -124,11 +126,11 @@ $row = mysqli_fetch_array($result);
         </div>
 
         <div class="middle-ticket-part">
-            <div class="depart-time">
+            <!-- <div class="depart-time">
                 <label for="depart">DEPART TIME:</label>
     
                 <input type="time" id="depart" value = '<?php echo $row['time'];?>'name="depart" maxlength="20" minlength="2" disabled>
-            </div>
+            </div> -->
 
             <div class="class-degree">
                 <label for="class">CLASS:</label>
