@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php require_once './database/dbConnection.php'; ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,46 +31,54 @@
 
                 <thead>
                     <tr>
-                        <th class="special-head">#ID</th>
-                        <th>Stations</th>
+                        <th colspan="2">Stations</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>#1</td>
-                        <td>Dummy Station</td>
-                    </tr>
-                    <tr class="grey-tr">
-                        <td>#2</td>
-                        <td>Dummy Station</td>
-                    </tr>
-                    <tr>
-                        <td>#3</td>
-                        <td>Dummy Station</td>
-                    </tr>
-                    <tr class="grey-tr">
-                        <td>#4</td>
-                        <td>Dummy Station</td>
-                    </tr>
-                    <tr>                        
-                        <td>#5</td>
-                        <td>Dummy Station</td>
-                    </tr>
-                    <tr class="grey-tr">
-                        <td>#6</td>
-                        <td>Dummy Station</td>
-                    </tr>
-                    <tr>
-                        <td>#7</td>
-                        <td>Dummy Station</td>
-                    </tr>
-                    <tr class="grey-tr">
-                        <td>#8</td>
-                        <td>Dummy Station</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+
+        <?php 
+
+
+
+
+
+if(isset($_POST['submit'])){
+
+$station = $_POST['station-name'];
+$sql = "INSERT INTO stations (stations) VALUES ('$station')";
+$query = mysqli_query($conn,$sql);
+
+
+}
+
+
+
+
+
+
+?>
+                <?php  
+                         
+                         $sql = 'SELECT stations FROM stations ';
+                         $result= mysqli_query($conn,$sql);
+                         while ($row= mysqli_fetch_assoc($result)){
+                         ?>
+                                         <tbody>
+                                     
+                                             <tr class="grey-tr">
+                                                 <td><?php echo $row['stations'] ?></td>
+                                             </tr>
+                         
+                         
+                                         </tbody>
+                                         <?php
+                         }
+                         ?>
+                         
+                         
+                                         
+                                     </table>
+                                 </div>
+                
 
         <div class="centering">
 
@@ -86,16 +94,24 @@
 
 
         <div class="form-popup" id="myForm">
-            <form method="get" class="form-container">
+            <form method="POST" class="form-container">
                 <h1>Add station</h1>
                 <label for="station-name"><b>Station name</b></label>
                 <input id="station-name" type="text" placeholder="Ex: 3abssya Station" name="station-name" required>
 
-                <button type="submit" class="btn">Save</button>
+                <button name ="submit" type="submit" class="btn">Save</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
             </form>
         </div>
-        <script>
+        
+
+
+
+
+    </div>
+
+</body>
+<script>
             function openForm() {
                 document.getElementById("myForm").style.display = "block";
             }
@@ -104,12 +120,4 @@
                 document.getElementById("myForm").style.display = "none";
             }
         </script>
-
-
-
-
-    </div>
-
-</body>
-
 </html>

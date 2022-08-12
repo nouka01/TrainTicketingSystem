@@ -24,12 +24,11 @@
             <li>
                 <h2>useful links</h2>
                 <ul class="box">
-                    <li><a href="#">blog </a></li>
-                    <li><a href="#">pricing </a></li>
-                    <li><a href="#">tickets</a></li>
-                    <li><a href="#">customer service </a></li>
-                    <li><a href="#">sales </a></li>
-                
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="cu.php">Contact Us </a></li>
+                    <li><a href="Signup.php">Register</a></li>
+                    <li><a href="book-a-ticket.php"> Ticket booking</a></li>
+                    
                 </ul>
                 
                 

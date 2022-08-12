@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php require_once './database/dbConnection.php';?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,112 +39,41 @@
                         <th>Class carriage</th>
                     </tr>
                 </thead>
+                <?php
+
+$sql="SELECT * FROM tickets";
+
+$result=mysqli_query($conn,$sql);
+
+while($row=mysqli_fetch_assoc($result))
+{
+?>
+
                 <tbody>
-                    <tr>
-                        <td><span name="ID">#1</span></td>
-                        <td>Dummy Source Station</td>
-                        <td>Dummy Destination Station</td>
-                        <td>10/2/2022</td>
-                        <td><span name="User-balance">22:10</span></td>
-                        <td>One Way</td>
-                        <td>First Class</td>
-
-
-                    </tr>
+                
                     <tr class="grey-tr">
-                        <td><span name="ID">#2</span></td>
-                        <td>Dummy Source Station</td>
-                        <td>Dummy Destination Station</td>
-                        <td>10/2/2022</td>
-                        <td><span name="User-balance">22:10</span></td>
-                        <td>Two Way</td>
-                        <td>Second Class</td>
+                        <td><span name="ID"><?php echo $row['ticketID'] ?> </span></td>
+                        <td><?php echo $row['source'] ?></td>
+                        <td><?php echo $row['destination'] ?></td>
+                        <td><?php echo $row['date'] ?></td>
+                        <td><?php echo $row['time'] ?></td>
+                        <td><?php echo $row['trip_type'] ?></td>
+                        <td><?php echo $row['trip_class'] ?></td>
+                        
+                      
+                       
                     </tr>
-                    <tr>
-                        <td><span name="ID">#3</span></td>
-                        <td>Dummy Source Station</td>
-                        <td>Dummy Destination Station</td>
-                        <td>10/2/2022</td>
-                        <td><span name="User-balance">22:10</span></td>
-                        <td>One Way</td>
-                        <td>First Class</td>
-                    </tr>
-                    <tr class="grey-tr">
-                        <td><span name="ID">#4</span></td>
-                        <td>Dummy Source Station</td>
-                        <td>Dummy Destination Station</td>
-                        <td>10/2/2022</td>
-                        <td><span name="User-balance">22:10</span></td>
-                        <td>Two Way</td>
-                        <td>Second Class</td>
-
-
-                    </tr>
-                    <tr>
-                        <td><span name="ID">#5</span></td>
-                        <td>Dummy Source Station</td>
-                        <td>Dummy Destination Station</td>
-                        <td>10/2/2022</td>
-                        <td><span name="User-balance">22:10</span></td>
-                        <td>Two Way</td>
-                        <td>First Class</td>
-
-
-                    </tr>
-                    <tr class="grey-tr">
-                        <td><span name="ID">#6</span></td>
-                        <td>Dummy Source Station</td>
-                        <td>Dummy Destination Station</td>
-                        <td>10/2/2022</td>
-                        <td><span name="User-balance">22:10</span></td>
-                        <td>One Way</td>
-                        <td>Second Class</td>
-
-                    </tr>
-                    <tr>
-                        <td><span name="ID">#7</span></td>
-                        <td>Dummy Source Station</td>
-                        <td>Dummy Destination Station</td>
-                        <td>10/2/2022</td>
-                        <td><span name="User-balance">22:10</span></td>
-                        <td>Two Way</td>
-                        <td>First Class</td>
-
-                    </tr>
-                    <tr class="grey-tr">
-                        <td><span name="ID">#8</span></td>
-                        <td>Dummy Source Station</td>
-                        <td>Dummy Destination Station</td>
-                        <td>10/2/2022</td>
-                        <td><span name="User-balance">22:10</span></td>
-                        <td>One Way</td>
-                        <td>Second Class</td>
-
-
-                    </tr>
-                    <tr>
-                        <td><span name="ID">#9</span></td>
-                        <td>Dummy Source Station</td>
-                        <td>Dummy Destination Station</td>
-                        <td>10/2/2022</td>
-                        <td><span name="User-balance">22:10</span></td>
-                        <td>Two Way</td>
-                        <td>First Class</td>
-                    </tr>
-                    <tr class="grey-tr">
-                        <td><span name="ID">#10</span></td>
-                        <td>Dummy Source Station</td>
-                        <td>Dummy Destination Station</td>
-                        <td>10/2/2022</td>
-                        <td><span name="User-balance">22:10</span></td>
-                        <td>One Way</td>
-                        <td>Second Class</td>
-                    </tr>
+                   
                 </tbody>
+
+                <?php 
+}
+                ?>
             </table>
 
         </div>
     </div>
+                
 
 
 
