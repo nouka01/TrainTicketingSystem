@@ -1,7 +1,7 @@
-<?php require_once 'database/dbConnection.php'; ?>
+<?php require_once 'database/dbConnection.php';
+ ?>
 <?php session_start();
-      include 'navbar.php';
-         ?>
+        include 'navbar.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -181,6 +181,7 @@ if (isset($_POST['save'])) {
     $currentUserID = $_SESSION['user_id'];
     
 
+    if(isset($_FILES['profile_picture'])){
     $imgName = $_FILES['profile_picture']['name'];
     $imgSize = $_FILES['profile_picture']['size'];
     $tempName = $_FILES['profile_picture']['tmp_name'];
@@ -188,23 +189,24 @@ if (isset($_POST['save'])) {
 
     if($imgError === 0){
 
+
     $imgEx = pathinfo($imgName, PATHINFO_EXTENSION);
-    $imgExToLc = strtolower($imgEx);
+    $imgExtToLower = strtolower($imgEx);
     $allowedExtensions = array('jpg', 'jpeg', 'png');
-    }
-    else{
-        echo "Image error";
-    }
+
     if(in_array($imgEx, $allowedExtensions)){
-        $newImgName = uniqid($newUsername, true).'.'.$imgExToLc;
+        $newImgName = uniqid($newUsername, true).'.'.$imgExtToLower;
         $imgUploadPath = 'upload/'.$newImgName;
         move_uploaded_file($tempName, $imgUploadPath);
     }
+    
+    }
     else{
-        echo "Image error";
+        $newImgName = $_SESSION['profile_picture'];
     }
     
-  
+    
+}
 
     $sql = "UPDATE `users` SET `user_name` = '$newUsername', `user_email` = '$newEmail', `user_phone` = '$newPhone', `profile_picture` = '$newImgName' WHERE `id` = '$currentUserID'";
 
@@ -214,8 +216,9 @@ if (isset($_POST['save'])) {
         $_SESSION['username'] = $newUsername;
         $_SESSION['user_email'] = $newEmail;
         $_SESSION['user_phone'] = $newPhone;
+        $_SESSION['profile_picture'] = $newImgName;
         echo "<script>alert('Updated Successfully!');</script>";
-        header("Location: profile.php");
+        echo "<script>window.location.href = 'profile.php';</script>";
     }
     else{
         echo "Error, changes not saved!";
