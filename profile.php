@@ -1,5 +1,6 @@
 <?php require_once 'database/dbConnection.php'; ?>
 <?php session_start();
+      include 'navbar.php';
          ?>
 
 <!DOCTYPE html>
