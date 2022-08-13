@@ -83,6 +83,7 @@ session_start();
             $_SESSION['user_phone'] = $row['user_phone'];
             $_SESSION['user_type'] = $row['user_type'];
             $_SESSION['hasTicket'] = $row['hasTicket'];
+		$_SESSION['profile_picture'] = $row['profile_picture'];
             
             
             echo "Hello, " . $row['user_name'];
