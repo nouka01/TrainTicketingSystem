@@ -84,6 +84,7 @@ session_start();
             $_SESSION['user_type'] = $row['user_type'];
             $_SESSION['hasTicket'] = $row['hasTicket'];
             
+            
             echo "Hello, " . $row['user_name'];
             header("Location: index.php");
 

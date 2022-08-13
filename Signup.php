@@ -73,6 +73,7 @@ if(isset($_POST['submit'])){
     $phone = $_POST['phone'];
     $userType = "User";
     $hasTicket = 0;
+    $defaultPP = "default-pp.jpg";
 
 
     $selectEmailFromDB = mysqli_query($conn, "SELECT * FROM users WHERE user_email = '".$email."'");
@@ -80,9 +81,9 @@ if(isset($_POST['submit'])){
             die('This email already exists!');
         }
 
-    $query = "INSERT INTO users (user_name, user_email, user_password, user_phone, user_type, hasTicket) 
+    $query = "INSERT INTO users (user_name, user_email, user_password, user_phone, user_type, hasTicket, profile_picture) 
     VALUES 
-    ('$username' , '$email', '$password', '$phone' ,'$userType', '$hasTicket')";
+    ('$username' , '$email', '$password', '$phone' ,'$userType', '$hasTicket', '$defaultPP')";
 
     $sql = mysqli_query($conn,$query);
         if($sql){
@@ -96,5 +97,8 @@ if(isset($_POST['submit'])){
 
 
     
+}
+else{
+    echo "Not submitted!";
 }
 

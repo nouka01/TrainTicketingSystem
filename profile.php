@@ -1,31 +1,10 @@
 <?php require_once 'database/dbConnection.php'; ?>
 <?php session_start();
-          ?>
-<?php
+         ?>
 
-if (isset($_POST['save'])) {
-
-    $newUsername = $_POST['profileusername'];
-    $newEmail = $_POST['profileemail'];
-    $newPhone = $_POST['profilephone'];
-    $currentUserID = $_SESSION['user_id'];
-
-    $sql = "UPDATE `users` SET `user_name` = '$newUsername', `user_email` = '$newEmail', `user_phone` = '$newPhone' WHERE `id` = '$currentUserID'";
-
-    $result = $conn->query($sql);
-
-    if ($result) {
-        $_SESSION['username'] = $newUsername;
-        $_SESSION['user_email'] = $newEmail;
-        $_SESSION['user_phone'] = $newPhone;
-        echo "<script>alert('Updated Successfully!');</script>";
-    }
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'navbar.php';?>
+
 <br>
 <br>
 <br>
@@ -88,16 +67,25 @@ if (isset($_POST['save'])) {
 <div class="card">
 <div class="card-body">
 <div class="d-flex flex-column align-items-center text-center">
-<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+    <?php
+        $currentUSERID = $_SESSION['user_id'];
+        $sqlPicture = "SELECT profile_picture FROM users WHERE id = '$currentUSERID'";
+        $result = mysqli_query($conn,$sqlPicture);
+        $row = mysqli_fetch_array($result);
+    
+    
+    
+    ?>
+<img src="upload/<?=$row['profile_picture'];?>" alt="Profile Pic" class="rounded-circle" width="150">
 <div class="mt-3">
-<h4 >John Doe</h4>
-<p class="text-secondary mb-1">Full Stack Developer</p>
-<p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-<button class="btn btn-primary">Upload photo</button>
+<h4 ><?php echo $_SESSION['username'];?></h4>
+<p> Profile Details </p>
+<form name="myProfile" enctype = "multipart/form-data" action = "" method = 'POST' novalidate onsubmit="return validateform()">
+<input type = "file" name = 'profile_picture' class="btn btn-primary">Upload photo</button>
 <br>
 <br>
        
-<button class="btn btn-outline-primary">Remove photo</button>
+
 </div>
 </div>
 </div>
@@ -116,7 +104,7 @@ if (isset($_POST['save'])) {
 <h6>Username</h6>
 </div>
 <div class="col-sm-9 text-secondary">
-    <form name="myProfile" action = "" method = 'POST' novalidate onsubmit="return validateform()">
+    
         <?php 
         $currentUserName = $_SESSION['username'];?>
 <input type="text" id="fname" name="profileusername" value = "<?php echo $currentUserName;?>"><br>
@@ -181,3 +169,61 @@ body{
 </script>
 </body>
 </html>
+
+<?php
+
+if (isset($_POST['save'])) {
+
+    $newUsername = $_POST['profileusername'];
+    $newEmail = $_POST['profileemail'];
+    $newPhone = $_POST['profilephone'];
+    $currentUserID = $_SESSION['user_id'];
+    
+
+    $imgName = $_FILES['profile_picture']['name'];
+    $imgSize = $_FILES['profile_picture']['size'];
+    $tempName = $_FILES['profile_picture']['tmp_name'];
+    $imgError = $_FILES['profile_picture']['error'];
+
+    if($imgError === 0){
+
+    $imgEx = pathinfo($imgName, PATHINFO_EXTENSION);
+    $imgExToLc = strtolower($imgEx);
+    $allowedExtensions = array('jpg', 'jpeg', 'png');
+    }
+    else{
+        echo "Image error";
+    }
+    if(in_array($imgEx, $allowedExtensions)){
+        $newImgName = uniqid($newUsername, true).'.'.$imgExToLc;
+        $imgUploadPath = 'upload/'.$newImgName;
+        move_uploaded_file($tempName, $imgUploadPath);
+    }
+    else{
+        echo "Image error";
+    }
+    
+  
+
+    $sql = "UPDATE `users` SET `user_name` = '$newUsername', `user_email` = '$newEmail', `user_phone` = '$newPhone', `profile_picture` = '$newImgName' WHERE `id` = '$currentUserID'";
+
+    $result = $conn->query($sql);
+
+    if ($result) {
+        $_SESSION['username'] = $newUsername;
+        $_SESSION['user_email'] = $newEmail;
+        $_SESSION['user_phone'] = $newPhone;
+        echo "<script>alert('Updated Successfully!');</script>";
+        header("Location: profile.php");
+    }
+    else{
+        echo "Error, changes not saved!";
+    }
+    
+}
+else
+{
+    
+}
+
+?>
