@@ -209,7 +209,26 @@ function hideShowReturnTime(val) {
     <br>
     <?php 
     if(isset($_POST['submit'])){
-   
+        
+
+        $id=$_SESSION['user_id'];
+        $sql="SELECT user_balance FROM users where id ='$id'";
+
+        $result=mysqli_query($conn,$sql);
+        $Balance=mysqli_fetch_array($result);
+       
+       
+        
+        $Total=$_POST['ticketCount']*10;
+    
+
+      if($Balance[0]>$Total)
+      {
+        $currentBalance=$Balance[0]-$Total;
+        $sql="UPDATE users SET user_balance ='$currentBalance' where id ='$id'";
+
+        $result=mysqli_query($conn,$sql);
+        
 
         $source = $_POST['sourceStation'];
         $destination = $_POST['destinationStation'];
@@ -243,14 +262,19 @@ function hideShowReturnTime(val) {
     
         $sql = mysqli_query($conn,$query);
         $sql2 = mysqli_query($conn,$query2);
-            if($sql && $sql2){
+            if($sql && $sql2)
+            {
                 echo "<script>alert('Ticket booked successfully!');</script>";
             }
         else
             echo "Ticket not booked!, check for errors";
         
-    }
     
+}else
+echo "<script>alert('Ticket not booked funds successfully!');</script>";
+
+
+}
     ?>
     
 </body>
