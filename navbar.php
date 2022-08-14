@@ -1,4 +1,7 @@
+<?php
 
+require_once './database/dbConnection.php';
+?>
 
 
 <html>
@@ -22,8 +25,18 @@
     <ul id="menu">
 
     <?php // Check if user is NOT logged in, then show the navigation bar that contains the login and signup hyperlinks
-      if (!isset($_SESSION['user_id'])):
+     
+    if (!isset($_SESSION['user_id'])):
+
+  //User Balance 
+  
+  
+
+
     ?>
+    
+     
+      
       <li><a href="index.php">Home</li></a>
       
       <li><a href="cu.php">Contact us</a></li>
@@ -34,11 +47,19 @@
  
       <?php //Check if user IS logged in, then show the nav bar that contains logout and doesn't contain signup
       if (isset($_SESSION['user_id'])):
+
+        //User Balance 
+        $id=$_SESSION['user_id'];
+        $sql="SELECT user_balance FROM users where id ='$id'";
+
+        $result=mysqli_query($conn,$sql);
+        $row=mysqli_fetch_array($result)
     ?>
       <li> <a href="index.php">Home</li></a>
       <li><a href="book-a-ticket.php">Book A Ticket</a><li>
         <li> <a href="train-ticket.php">My Tickets</li></a>
         <li> <a href="profile.php">My Profile</li></a>
+        <li><a href="index.php">Credits:<?php echo $row[0] ?></li></a>
         <li><a href="cu.php">Contact us</a></li>
       <li> <a href="logout.php">Logout</li></a>
       <?php endif;?>

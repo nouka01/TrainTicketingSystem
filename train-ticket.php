@@ -5,10 +5,10 @@ include 'navbar.php';
 $loggedUserId = $_SESSION['user_id'];
 require_once 'database/dbConnection.php';
 $sqlLine = "SELECT * FROM users WHERE id = '".$loggedUserId."'  ";
-$result = mysqli_query($conn, $sqlLine);
-$row = mysqli_fetch_array($result);
+$result2 = mysqli_query($conn, $sqlLine);
+$row2 = mysqli_fetch_array($result2);
 
-if($row['hasTicket'] == 1):
+if($row2['hasTicket'] == 1):
 
 ?>
 
@@ -31,20 +31,24 @@ if($row['hasTicket'] == 1):
 }
 </script>
 </head>
-
+<h1><?php echo $_SESSION['username'];?> Tickets</h1>
 <?php
 
 $loggedUserID = $_SESSION['user_id'];
 $sql = "SELECT * FROM tickets WHERE by_user_id = '".$loggedUserID."' ";
 $result = mysqli_query($conn,$sql);
 
-$row = mysqli_fetch_array($result);
+
+while($row = mysqli_fetch_array($result))
+{
+
+
 ?>
     
 <body onload="hideShowReturnTime('<?php echo $row['trip_type'];?>')">
 
     <div class="main-header">
-    <h1><?php echo $_SESSION['username'];?> Tickets</h1>
+    
     </div>
 
 
@@ -142,7 +146,9 @@ $row = mysqli_fetch_array($result);
         
     </div>
     <div class="footer"></div>
-
+<?php
+}
+?>
 </body>
 
 <?php   
@@ -150,5 +156,6 @@ $row = mysqli_fetch_array($result);
 
 else: echo "<p><br><br><br><br>You have no tickets!</p><br><br><br>";
     echo "<a href = 'book-a-ticket.php'> Press here to book a ticket now!</a>";
-        endif;    ?>
+        endif;   
+      ?>
 </html>
