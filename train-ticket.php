@@ -78,7 +78,7 @@ while($row = mysqli_fetch_array($result))
             <div class="train-date-return" id="returningDateJS">
                 <label for="date">RETURNING DATE:</label>
     
-                <input type="date" id="date" value ="" name="date" maxlength="20" minlength="2" disabled>
+                <input type="date" id="date" value ='<?php echo $row['return_date'];?>' name="date" maxlength="20" minlength="2" disabled>
             </div>
 
         </div>

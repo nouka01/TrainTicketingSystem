@@ -233,6 +233,7 @@ function hideShowReturnTime(val) {
         $source = $_POST['sourceStation'];
         $destination = $_POST['destinationStation'];
         $date = $_POST['date'];
+        $returnDate = $_POST['returnDate'];
         $time = $_POST['time'];
         $trip_type_retriever = $_POST['way'];
         $trip_class_retriever = $_POST['cariage'];
@@ -253,9 +254,9 @@ function hideShowReturnTime(val) {
     
         $byUser = $_SESSION['user_id'];
         
-        $query = "INSERT INTO tickets (by_user_id, source, destination, date, time, trip_type, trip_class, ticketCount) 
+        $query = "INSERT INTO tickets (by_user_id, source, destination, date, return_date, time, trip_type, trip_class, ticketCount) 
         VALUES 
-        ('$byUser' , '$source',  '$destination', '$date', '$time', '$tripType', '$tripClass', '$ticketCount')";
+        ('$byUser' , '$source',  '$destination', '$date', '$returnDate' , '$time', '$tripType', '$tripClass', '$ticketCount')";
         $userHasTicket = 1;
         $query2 = "UPDATE users SET hasTicket = '$userHasTicket' WHERE id = '$byUser' ";
         
@@ -271,7 +272,7 @@ function hideShowReturnTime(val) {
         
     
 }else
-echo "<script>alert('Ticket not booked funds successfully!');</script>";
+echo "<script>alert('Ticket not booked, funds insufficient!');</script>";
 
 
 }
