@@ -31,7 +31,7 @@ if($row2['hasTicket'] == 1):
 }
 </script>
 </head>
-<h1><?php echo $_SESSION['username'];?> Tickets</h1>
+<h1 class="main-header" ><?php echo $_SESSION['username'];?> Tickets</h1>
 <?php
 
 $loggedUserID = $_SESSION['user_id'];
@@ -130,11 +130,11 @@ while($row = mysqli_fetch_array($result))
         </div>
 
         <div class="middle-ticket-part">
-            <!-- <div class="depart-time">
+            <div class="depart-time">
                 <label for="depart">DEPART TIME:</label>
     
                 <input type="time" id="depart" value = '<?php echo $row['time'];?>'name="depart" maxlength="20" minlength="2" disabled>
-            </div> -->
+            </div>
 
             <div class="class-degree">
                 <label for="class">CLASS:</label>

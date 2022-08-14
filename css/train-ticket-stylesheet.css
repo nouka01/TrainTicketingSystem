@@ -9,7 +9,9 @@ body {
 }
 
 .main-header {
-    font-size: 15px;
+    font-size: 25px;
+    width: 300px;
+    margin: auto;
     font-weight: bold;
     letter-spacing: 4px;
     word-spacing: 0px;
@@ -86,15 +88,19 @@ h1 {
     margin-left: 35px;
 }
 
-/* .depart-time {
+.depart-time,
+.class-degree {
     display: inline-block;
-    margin-left: 105px;
-} */
+    width: 100px;
+    margin: auto;
+}
 
 .class-degree {
-    /* display: inline-block; */
+    display: inline-block;
     width: 130px;
     margin: auto;
+
+
 }
 
 input {

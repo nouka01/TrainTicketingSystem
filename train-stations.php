@@ -41,23 +41,15 @@
 
         <div class="users-table">
             <table>
-
                 <thead>
                     <tr>
                         
-                        <th colspan="2">Stations</th>
-                        
-                        <th colspan="2">Station ID</th>
-                        
-                        
+                        <th  class="special-head">Station #ID</th>  
+                        <th >Stations</th>
                         
                     </tr>
                 </thead>
-
         <?php 
-
-
-
 
 
 if(isset($_POST['submit'])){
@@ -65,14 +57,7 @@ if(isset($_POST['submit'])){
 $station = $_POST['station-name'];
 $sql = "INSERT INTO stations (stations) VALUES ('$station')";
 $query = mysqli_query($conn,$sql);
-
-
 }
-
-
-
-
-
 
 ?>
                 <?php  
@@ -83,24 +68,17 @@ $query = mysqli_query($conn,$sql);
                          ?>
                                          <tbody>
 
-                                            
-                                     
-                                             <tr class="grey-tr">
+                                                <tr class="grey-tr">
+                                                 <td>#<?php echo  $row['station_id'];?>
                                                  <td><?php echo $row['stations']; ?>
                                                 <form action = 'deleteStation.php?action=remove&id=<?php echo $row['station_id'];?>' method = 'POST'>
-                                                    <input type = 'submit' name = 'delete' value = 'delete' ></td>
+                                                    <input id="delete-station-button" type = 'submit' name = 'delete' value = 'Delete' ></td>
                                                 </form>    
-                                                 <td><?php echo $row['station_id'];?>
                                              </tr>
-                         
-                         
                                          </tbody>
                                          <?php
                          }
-                         ?>
-                         
-                         
-                                         
+                         ?>             
                                      </table>
                                  </div>
                 
@@ -128,10 +106,6 @@ $query = mysqli_query($conn,$sql);
                 <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
             </form>
         </div>
-        
-
-
-
 
     </div>
 
