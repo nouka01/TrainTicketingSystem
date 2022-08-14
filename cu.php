@@ -17,10 +17,11 @@ include 'navbar.php';?>
             </div>
             <div class="content">
                 <form action="">
+                
                     <input class="main-input" type="text" name="name" placeholder="Your Name">
                     <input class="main-input" type="email" name="mail" placeholder="Your Email">
                     <textarea class="main-input" name="message" placeholder="Your Message"></textarea>
-                    <input type="submit" value="Send Message">
+                    <input type="button" value="Send Message">
                     
                     
                 </form>
