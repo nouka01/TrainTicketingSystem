@@ -172,10 +172,8 @@ body{
 }
 
 
-
 input{
   display: none;
-  
   
 }
 
