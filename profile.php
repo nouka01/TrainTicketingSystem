@@ -82,7 +82,12 @@
 <h4 ><?php echo $_SESSION['username'];?></h4>
 <p> Profile Details </p>
 <form name="myProfile" enctype = "multipart/form-data" action = "" method = 'POST' novalidate onsubmit="return validateform()">
-<input type = "file" name = 'profile_picture' class="btn btn-primary">Upload photo</button>
+
+<label for="inputTag">
+  Select Image
+  <input id="inputTag" type="file"/>
+</label>
+
 <br>
 <br>
        
@@ -165,6 +170,21 @@ body{
 .main-body {
     padding: 15px;
 }
+
+
+
+input{
+  display: none;
+  
+  
+}
+
+label{
+    cursor: pointer;
+}
+
+
+
 </style>
 <script type="text/javascript">
 </script>
