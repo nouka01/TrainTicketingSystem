@@ -12,7 +12,7 @@ require_once './database/dbConnection.php';
   <title>Training Studio</title>
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/index.css" />
-
+ 
   
 
 </head>
@@ -59,7 +59,7 @@ require_once './database/dbConnection.php';
       <li><a href="book-a-ticket.php">Book A Ticket</a><li>
         <li> <a href="train-ticket.php">My Tickets</li></a>
         <li> <a href="profile.php">My Profile</li></a>
-        <li><a href="index.php">Credits:<?php echo $row[0] ?></li></a>
+        <li><a href="index.php"> <i class="fa fa-money"></i> : <?php echo $row[0] ?></li></a>
         <li><a href="cu.php">Contact us</a></li>
       <li> <a href="logout.php">Logout</li></a>
       <?php endif;?>
@@ -69,4 +69,5 @@ require_once './database/dbConnection.php';
     </ul>
   </nav>
   <!-- End Nav -->
+  
 </html>
