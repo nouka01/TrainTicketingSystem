@@ -222,7 +222,7 @@ function hideShowReturnTime(val) {
         $Total=$_POST['ticketCount']*10;
     
 
-      if($Balance[0]>$Total)
+      if($Balance[0]>=$Total)
       {
         $currentBalance=$Balance[0]-$Total;
         $sql="UPDATE users SET user_balance ='$currentBalance' where id ='$id'";

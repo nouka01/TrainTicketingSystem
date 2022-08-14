@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once './database/dbConnection.php'; ?>
+<?php session_start();
+  require_once './database/dbConnection.php';
+  $currentLoggedUserID = $_SESSION['user_id'];
+  $sqlGetUserType = "SELECT user_type FROM users WHERE id = '$currentLoggedUserID' ";
+  $executeSQL = mysqli_query($conn,$sqlGetUserType);
+
+  $userTypeRow = mysqli_fetch_array($executeSQL);
+
+  if($userTypeRow['user_type'] == "User"){
+    header("Location: noAccess.php");
+  }
+
+
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +23,7 @@
 </head>
 
 
-<?php session_start();
+<?php 
     include 'navbar.php';?>
 
 
@@ -31,7 +44,13 @@
 
                 <thead>
                     <tr>
+                        
                         <th colspan="2">Stations</th>
+                        
+                        <th colspan="2">Station ID</th>
+                        
+                        
+                        
                     </tr>
                 </thead>
 
@@ -58,14 +77,20 @@ $query = mysqli_query($conn,$sql);
 ?>
                 <?php  
                          
-                         $sql = 'SELECT stations FROM stations ';
+                         $sql = 'SELECT * FROM stations ';
                          $result= mysqli_query($conn,$sql);
                          while ($row= mysqli_fetch_assoc($result)){
                          ?>
                                          <tbody>
+
+                                            
                                      
                                              <tr class="grey-tr">
-                                                 <td><?php echo $row['stations'] ?></td>
+                                                 <td><?php echo $row['stations']; ?>
+                                                <form action = 'deleteStation.php?action=remove&id=<?php echo $row['station_id'];?>' method = 'POST'>
+                                                    <input type = 'submit' name = 'delete' value = 'delete' ></td>
+                                                </form>    
+                                                 <td><?php echo $row['station_id'];?>
                                              </tr>
                          
                          

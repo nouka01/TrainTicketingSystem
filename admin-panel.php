@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
- require_once './database/dbConnection.php';
+  session_start();
+  require_once './database/dbConnection.php';
+  $currentLoggedUserID = $_SESSION['user_id'];
+  $sqlGetUserType = "SELECT user_type FROM users WHERE id = '$currentLoggedUserID' ";
+  $executeSQL = mysqli_query($conn,$sqlGetUserType);
+
+  $userTypeRow = mysqli_fetch_array($executeSQL);
+
+  if($userTypeRow['user_type'] == "User"){
+    header("Location: noAccess.php");
+  }
+ 
 ?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="CSS/admin-panel.css">
-  <title>Admin pannel</title>
+  <title>Admin panel</title>
 </head>
 
-<?php session_start();
+<?php 
     include 'navbar.php';?>
 
 <body>
