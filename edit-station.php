@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Station</title>
+    <link rel="stylesheet" href="CSS/edit-station.css">
+</head>
+<body>
+
 <?php session_start();
 require_once 'database/dbConnection.php';
 $stationId = $_GET['id'];
@@ -11,21 +22,34 @@ if($row){
     $stationName = $row['stations'];
 }
 ?>
-<center><br><br><br><br><br><br><br><br>
-<form action = "" method = 'POST'>
 
-    Station Name <input type = 'text' name = 'station-name' required value = '<?php echo $stationName;?>' ><br><br>
-                <input type = 'submit' name = 'submit-edit' value = 'Update'>
+<div class="main-header">
+    <p>Enter the updated station name bellow:-</p>
+</div>
 
+<form class="my-form"  method = 'POST'>
+
+    <div class="station-name-input">
+        <label for="statioName">Station Name: </label>
+        <input id="statioName" type = 'text' name = 'station-name' required minlength="3" maxlength="150" value = '<?php echo $stationName;?>'  >
+    </div>
+
+    <div class="submit-button">
+        <input id="submitButton" type = 'submit' name = 'submit-edit' value = 'Update'>
+    </div>
 </form>
-</center>
+
+
+
+
+
+
+
+
+
 
 <?php
-
 if(isset($_POST['submit-edit'])){
-
-
-
     $stationNAME = $_POST['station-name'];
     $updateNameSQL = "UPDATE stations SET stations = '$stationNAME' WHERE station_id = '$stationId' ";
     $execute = mysqli_query($conn,$updateNameSQL);
@@ -35,7 +59,7 @@ if(isset($_POST['submit-edit'])){
         echo "<script>window.location.href = 'train-stations.php';</script>";
         
     }
-
 }
-
 ?>
+</body>
+</html>
