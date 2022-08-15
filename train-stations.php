@@ -75,6 +75,7 @@ $query = mysqli_query($conn,$sql);
                                                  <td><?php echo $row['stations']; ?>
                                                 <form action = 'deleteStation.php?action=remove&id=<?php echo $row['station_id'];?>' method = 'POST'>
                                                     <input id="delete-station-button" type = 'submit' name = 'delete' value = 'Delete' >
+                                                    <a href = 'edit-station.php?action=edit&id=<?php echo $row['station_id'];?>'>Edit Station</a>
                                                    </td>
                                                 </form>  
                                                
@@ -83,6 +84,7 @@ $query = mysqli_query($conn,$sql);
                                          </tbody>
                                          <?php
                          }
+                         
                          ?>             
                                      </table>
                                  </div>
