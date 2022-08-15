@@ -5,7 +5,19 @@ require_once 'database/dbConnection.php';
 $userLoggedID = $_SESSION['user_id'];
 
 ?>
-<center>
+<!DOCTYPE html>
+<html lang="en">
+    
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/purchase.css" />
+		<title>Form</title>
+	</head>
+	<body>
+	<center>
+    <h2>Purchase <span>Credits</span></h2>
 <form action = "" method = 'POST'>
 <br><br><br><br><br>
     Name on card <input required type = 'text' placeholder = 'ex: Johnny Richard'><br><br>
@@ -17,6 +29,11 @@ $userLoggedID = $_SESSION['user_id'];
 
 </form>
 </center>
+	</body>
+</html>
+
+
+
 
 <?php
 
@@ -44,3 +61,4 @@ if(isset($_POST['recharge-submit'])){
 }
 
 ?>
+ <?php include 'footer.php';?>
