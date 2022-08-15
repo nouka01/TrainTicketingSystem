@@ -1,7 +1,12 @@
 
 <html>
 <head>
-<?php include 'navbar.php';?>
+<?php
+session_start();
+require_once 'database/dbConnection.php';
+include 'navbar.php';
+
+?>
 	<meta charset="utf-8">
 	<title>Reset</title>
 
@@ -13,26 +18,28 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="js/resetpassword.js"></script>
+
 </head>
 <body>
 
 <section class="contact" id="contact">
 <br>
     <div class="row">
-        <form action="index.html" method="post">
+        <form action="" method = 'POST'>
         	<center><h1 class="heading"> <span>Reset</span> Password</h1></center>
-            <div class="inputBox">
-                <input type="password" placeholder="Old Password">
-            </div>
+            
             <br>
             <div class="inputBox">
-                <input type="password" placeholder="New Password">
-            </div>
+                <input type="password" name = 'new-pw'  onkeyup = "validatePassword(); enableSubmit();"    id = 'new-pw' placeholder="New Password">
+                <p id = 'new-pw-error'></p>
+            </div><br>
             <div class="inputBox">
-                <input type="password" placeholder="Confirm Password">
+                <input type="password" name = 'new-conf-pw'  onkeyup = "validateConfirmPassword(); enableSubmit();"   id = 'new-conf-pw' placeholder="Confirm Password">
+                <p id = 'conf-pw-error'></p>
             </div>
            
-            <center><a href="" class="btn">reset</a></center>
+            <center><input type="submit" name = 'resetsubmit' id = 'resetsubmit' disabled value = 'Reset' class="btn"></center>
             <br>
             <br>
             <br>
@@ -42,3 +49,36 @@
 </section>
 <?php include 'footer.php';?>
 </html>
+
+<?php
+if(isset($_POST['resetsubmit'])){
+
+    $newPw = $_POST['new-pw'];
+    $newConfPw = $_POST['new-conf-pw'];
+    $loggedUserrID = $_SESSION['user_id'];
+    $oldPw = $_SESSION['user_password'];
+
+    if($oldPw == $newPw){
+        echo "<script>alert('This is your old password. Please enter a new password');</script>";
+    }
+
+    else if($newPw == $newConfPw){
+        $resetpwSQL = "UPDATE users SET user_password = '$newPw' WHERE id = '$loggedUserrID' ";
+        $result = mysqli_query($conn,$resetpwSQL);
+
+        if($result){
+            echo "<script>alert('Password reset successfully, we will log you out now');</script>";
+            echo "<script>window.location.href = 'logout.php';</script>";
+        }
+        else
+        {
+            echo "Password not reset, database error";
+            
+        }
+    }
+    
+    
+
+}
+
+?>
