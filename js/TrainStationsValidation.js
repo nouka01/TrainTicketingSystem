@@ -5,7 +5,8 @@ form.addEventListener('submit',(e) =>{
 
 let messages=[]
 if(station.value===''|| station.value==null){
-    messages.push('name is required')
+   
+    messages.push('Name is required')
 
 }
 if(messages.length>0){

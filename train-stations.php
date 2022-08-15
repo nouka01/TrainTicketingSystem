@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <script defer src="js/TrainStationsValidation.js"></script>
+
 <?php session_start();
   require_once './database/dbConnection.php';
   $currentLoggedUserID = $_SESSION['user_id'];
@@ -16,6 +16,7 @@
 
     ?>
 <head>
+<script defer src="js/TrainStationsValidation.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,23 +43,15 @@
 
         <div class="users-table">
             <table>
-
                 <thead>
                     <tr>
                         
-                        <th colspan="2">Stations</th>
-                        
-                        <th colspan="2">Station ID</th>
-                        
-                        
+                        <th  class="special-head">Station #ID</th>  
+                        <th >Stations</th>
                         
                     </tr>
                 </thead>
-
         <?php 
-
-
-
 
 
 if(isset($_POST['submit'])){
@@ -66,14 +59,7 @@ if(isset($_POST['submit'])){
 $station = $_POST['station-name'];
 $sql = "INSERT INTO stations (stations) VALUES ('$station')";
 $query = mysqli_query($conn,$sql);
-
-
 }
-
-
-
-
-
 
 ?>
                 <?php  
@@ -84,27 +70,20 @@ $query = mysqli_query($conn,$sql);
                          ?>
                                          <tbody>
 
-                                            
-                                     
-                                             <tr class="grey-tr">
+                                                <tr class="grey-tr">
+                                                 <td>#<?php echo  $row['station_id'];?>
                                                  <td><?php echo $row['stations']; ?>
                                                 <form action = 'deleteStation.php?action=remove&id=<?php echo $row['station_id'];?>' method = 'POST'>
-                                                    <input type = 'submit' name = 'delete' value = 'delete' >
-                                              
-                                            </td>
-                         </form>  
-                                                </form>    
-                                                 <td><?php echo $row['station_id'];?>
+                                                    <input id="delete-station-button" type = 'submit' name = 'delete' value = 'Delete' >
+                                                   </td>
+                                                </form>  
+                                               
+
                                              </tr>
-                         
-                         
                                          </tbody>
                                          <?php
                          }
-                         ?>
-                         
-                         
-                                         
+                         ?>             
                                      </table>
                                  </div>
                 
@@ -123,7 +102,6 @@ $query = mysqli_query($conn,$sql);
 
 
         <div class="form-popup" id="myForm">
-            <div id = "error"> </div>
             <form method="POST" class="form-container">
                 <h1>Add station</h1>
                 <label for="station-name"><b>Station name</b></label>
@@ -133,10 +111,6 @@ $query = mysqli_query($conn,$sql);
                 <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
             </form>
         </div>
-        
-
-
-
 
     </div>
 
@@ -149,9 +123,5 @@ $query = mysqli_query($conn,$sql);
             function closeForm() {
                 document.getElementById("myForm").style.display = "none";
             }
-           
-                
-
-            
         </script>
 </html>
