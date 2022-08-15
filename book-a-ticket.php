@@ -266,6 +266,7 @@ function hideShowReturnTime(val) {
             if($sql && $sql2)
             {
                 echo "<script>alert('Ticket booked successfully!');</script>";
+                echo "<script>window.location.href = 'train-ticket.php';</script>";
             }
         else
             echo "Ticket not booked!, check for errors";

@@ -154,8 +154,8 @@ while($row = mysqli_fetch_array($result))
 <?php   
 
 
-else: echo "<p><br><br><br><br>You have no tickets!</p><br><br><br>";
-    echo "<a href = 'book-a-ticket.php'> Press here to book a ticket now!</a>";
+else: echo "<p><br><br><br><br><center>You have no tickets!</p><br><br><br>";
+    echo "<a href = 'book-a-ticket.php'> Press here to book a ticket now!</a></center>";
         endif;   
       ?>
 </html>
