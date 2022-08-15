@@ -9,10 +9,7 @@
   box-sizing: border-box;
   list-style: none;
 }
-::selection {
-  background: var(--main-text-color);
-  color: white;
-}
+
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -40,6 +37,7 @@
 
 
 /* Start Components */
+/*css for h2 p img*/
 .special-heading {
   text-align: center;
 }
@@ -255,7 +253,7 @@
   transition: 0.3s;
 }
 .contact .text a:hover {
-  background-color: #f9735b;
+  background-color: #470bd3;
 }
 /* End Contact */
 
