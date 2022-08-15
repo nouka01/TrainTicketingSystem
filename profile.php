@@ -150,7 +150,8 @@
 <center><input type = 'submit' name = 'save' value = 'Save changes' class="btn btn-info " target="__blank" href=""></input></center><br>
 </form>
 <form action = 'deleteAccount.php' method = 'POST'>
-    <center><input type = 'submit' value = 'Delete Account!' class="btn btn-danger "></center>
+    <center><input type = 'submit' value = 'Delete Account!' class="btn btn-danger "></center><br>
+    <center><a href = 'reset-password.php'>Reset Your Password Here!</a></center>
 </form>
                     
                 

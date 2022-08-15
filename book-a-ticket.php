@@ -74,6 +74,22 @@ function hideShowReturnTime(val) {
 }
 </script>  
 
+<script>
+
+function dynamicTotal(){
+    let numberOfPassengers = document.getElementById("noTickets");
+    
+    let price = document.getElementById("ticketPrice");
+    price.value = 10 * numberOfPassengers.value;
+}
+
+
+
+
+
+
+</script>
+
 
 </head>
 <?php session_start();
@@ -186,11 +202,11 @@ function hideShowReturnTime(val) {
 
             <div class="no-of-tickets">
                 <label for="noTickets">Number of Passengers: </label>
-                <input id="noTickets" type="number" name = 'ticketCount' value="1">
+                <input id="noTickets" type="number" name = 'ticketCount' onkeyup = 'dynamicTotal();' value="1">
             </div>
 
             <div class="ticket-price">
-                <label for="ticketPrice">Subtotal: </label>
+                <label for="ticketPrice">Total: </label>
                 <input id="ticketPrice" name="ticketPrice" type="number" max="1000" min="10" value="10">
             </div>
 
