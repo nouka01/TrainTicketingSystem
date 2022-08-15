@@ -63,47 +63,58 @@
 <?php
 require 'database/dbConnection.php';
 session_start();
+try{
+  if(isset($_POST['submit'])){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    if(isset($_POST['submit'])){
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+    $sqlQuery = "SELECT * FROM users WHERE user_email = '".$email."' AND user_password = '".$password."' ";
 
-        $sqlQuery = "SELECT * FROM users WHERE user_email = '".$email."' AND user_password = '".$password."' ";
+    $exec = mysqli_query($conn,$sqlQuery);
 
-        $exec = mysqli_query($conn,$sqlQuery);
-
-        $row = mysqli_fetch_array($exec);
-        
-        
-        if($row['user_email'] == $email && $row['user_password'] == $password && $row['user_type'] == "User"){
-
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['username'] = $row['user_name'];
-            $_SESSION['user_email'] = $row['user_email'];
-            $_SESSION['user_phone'] = $row['user_phone'];
-            $_SESSION['user_type'] = $row['user_type'];
-            $_SESSION['hasTicket'] = $row['hasTicket'];
-		$_SESSION['profile_picture'] = $row['profile_picture'];
-            
-            
-            echo "Hello, " . $row['user_name'];
-            header("Location: index.php");
-
-            
-        }
-        else if($row['user_email'] == $email && $row['user_password'] == $password && $row['user_type'] == "Admin"){
-          $_SESSION['user_id'] = $row['id'];
-          $_SESSION['username'] = $row['user_name'];
-          $_SESSION['user_email'] = $row['user_email'];
-          $_SESSION['user_phone'] = $row['user_phone'];
-          $_SESSION['user_type'] = $row['user_type'];
-          
-          echo "Hello Admin, " . $row['user_name'];
-          header("Location: admin-panel.php");
-        }
-        else{
-            echo "Login unsuccessful, please enter valid credentials";
-        }
+    $row = mysqli_fetch_array($exec);
+    if(!$exec)
+    {
+      throw new Exception($conn->connect_error);
     }
+    
+    
+    if($row['user_email'] == $email && $row['user_password'] == $password && $row['user_type'] == "User"){
+
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['username'] = $row['user_name'];
+        $_SESSION['user_email'] = $row['user_email'];
+        $_SESSION['user_phone'] = $row['user_phone'];
+        $_SESSION['user_type'] = $row['user_type'];
+        $_SESSION['hasTicket'] = $row['hasTicket'];
+$_SESSION['profile_picture'] = $row['profile_picture'];
+        
+       
+        echo "Hello, " . $row['user_name'];
+        header("Location: index.php");
+
+        
+    }
+    else if($row['user_email'] == $email && $row['user_password'] == $password && $row['user_type'] == "Admin"){
+      $_SESSION['user_id'] = $row['id'];
+      $_SESSION['username'] = $row['user_name'];
+      $_SESSION['user_email'] = $row['user_email'];
+      $_SESSION['user_phone'] = $row['user_phone'];
+      $_SESSION['user_type'] = $row['user_type'];
+      
+      echo "Hello Admin, " . $row['user_name'];
+      header("Location: admin-panel.php");
+    }
+    else{
+      throw new Exception('Login unsuccessful');
+       
+    }
+}
+
+}
+catch(Exception $e){
+echo 'error: '.$e->getMessage();
+}
+   
 
 ?>
