@@ -73,10 +73,11 @@ try{
     $exec = mysqli_query($conn,$sqlQuery);
 
     $row = mysqli_fetch_array($exec);
-    if(!$exec)
+    if(!$row)
     {
-      throw new Exception($conn->connect_error);
+      throw new Exception('Login Unsuccessful, invalid credentials');
     }
+    
     
     
     if($row['user_email'] == $email && $row['user_password'] == $password && $row['user_type'] == "User"){
@@ -106,7 +107,7 @@ $_SESSION['profile_picture'] = $row['profile_picture'];
       header("Location: admin-panel.php");
     }
     else{
-      throw new Exception('Login unsuccessful');
+      throw new Exception('Login unsuccessful, invalid credentials');
        
     }
 }
