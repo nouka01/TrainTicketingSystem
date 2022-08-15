@@ -9,56 +9,10 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="js/loginValidation.js"></script>
+
 </head>
 <body>
-
-
-
-<script>
-    // this is jQuery to validate sign in form of the local train ticketing system (We're using native Javascript in Sign Up validation (for a change :D))
-    $(document).ready(function() {
-  $("#login-form").validate({
-    rules: {
-     
-      email: {
-        required: true,
-        email: true
-      }
-    },
-    messages : {
-    
-      email: {
-        email: "Example for email format: web@dev.com"
-      }
-    }
-  });
-});
-</script>
-
-<section class="contact" id="contact">
-<br>
-    <div class="row">
-        <form id='login-form' action="" method="post">
-        	<center><h1 class="heading"> <span>Log</span> in </h1></center>
-            <div class="inputBox">
-                <input name = 'email' type="email" placeholder="Email" required>
-            </div>
-            <br>
-            <div class="inputBox">
-                <input name = 'password' type="password" placeholder="Password">
-            </div>
-            <center><input name = 'submit' type="submit" value="Login" class="btn"></center> 
-            <center><a href="Signup.php" class="btn">SignUp</a></center>
-        </form>
-    </div>
-    <br>
-    <br>
-    <br>
-</section>
-<?php include 'footer.php';?>
-</html>
-
-
 
 <?php
 require 'database/dbConnection.php';
@@ -83,12 +37,13 @@ try{
     if($row['user_email'] == $email && $row['user_password'] == $password && $row['user_type'] == "User"){
 
         $_SESSION['user_id'] = $row['id'];
+        $_SESSION['user_password'] = $row['user_password'];
         $_SESSION['username'] = $row['user_name'];
         $_SESSION['user_email'] = $row['user_email'];
         $_SESSION['user_phone'] = $row['user_phone'];
         $_SESSION['user_type'] = $row['user_type'];
         $_SESSION['hasTicket'] = $row['hasTicket'];
-$_SESSION['profile_picture'] = $row['profile_picture'];
+        $_SESSION['profile_picture'] = $row['profile_picture'];
         
        
         echo "Hello, " . $row['user_name'];
@@ -98,6 +53,7 @@ $_SESSION['profile_picture'] = $row['profile_picture'];
     }
     else if($row['user_email'] == $email && $row['user_password'] == $password && $row['user_type'] == "Admin"){
       $_SESSION['user_id'] = $row['id'];
+      $_SESSION['user_password'] = $row['user_password'];
       $_SESSION['username'] = $row['user_name'];
       $_SESSION['user_email'] = $row['user_email'];
       $_SESSION['user_phone'] = $row['user_phone'];
@@ -111,11 +67,43 @@ $_SESSION['profile_picture'] = $row['profile_picture'];
        
     }
 }
-
+$errorMsg = "";
 }
 catch(Exception $e){
-echo 'error: '.$e->getMessage();
+$errorMsg = $e->getMessage();
 }
    
 
 ?>
+
+
+
+<section class="contact" id="contact">
+<br>
+    <div class="row">
+        <form id='login-form' action="" method="post">
+        	<center><h1 class="heading"> <span>Log</span> in </h1></center>
+            <div class="inputBox">
+                <input name = 'email' id = 'e-mail' onkeyup = 'emailValidation(); enableSubmit();'type="email" placeholder="Email" required><br>
+                <p id = 'email-err'></p>
+            </div>
+            <br>
+            <div class="inputBox">
+                <input name = 'password' id = 'p-word' onkeyup = 'passwordValidation(); enableSubmit();' type="password" placeholder="Password"><br>
+                <p id = 'pw-err'></p><br>
+                <?php echo $errorMsg;?>
+            </div>
+            <center><input name = 'submit' type="submit" id = 'submit-btn'value="Login" class="btn" disabled></center> 
+            <center><a href="Signup.php" class="btn">SignUp</a></center>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+</section>
+<?php include 'footer.php';?>
+</html>
+
+
+
+

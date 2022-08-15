@@ -31,7 +31,7 @@ if(isset($_POST['recharge-submit'])){
     $newBalance = $balanceAmount + $row['user_balance'];
 
     //Insert new balance into database
-    $insertNewBalanceSQL = "UPDATE users SET user_balance = '$newBalance' ";
+    $insertNewBalanceSQL = "UPDATE users SET user_balance = '$newBalance'  WHERE id = '$userLoggedID' ";
     $result2 = mysqli_query($conn, $insertNewBalanceSQL);
     
     if($result2){
