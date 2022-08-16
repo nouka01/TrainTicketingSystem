@@ -89,7 +89,7 @@ while($row=mysqli_fetch_assoc($result))
     <td><?php echo $row['user_name'] ?></td>
     <td><?php echo $row['user_email'] ?></td>
     <td><?php echo $row['user_phone'] ?></td>
-    <td><span name="User-balance">30</span>&dollar;</td>
+    <td><?php echo $row['user_balance'];?></td>
   </tr>
 
 </tbody>
