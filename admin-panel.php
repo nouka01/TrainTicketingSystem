@@ -9,7 +9,7 @@
 
   $userTypeRow = mysqli_fetch_array($executeSQL);
 
-  if($userTypeRow['user_type'] == "User"){
+  if($userTypeRow['user_type'] != "Admin"){
     header("Location: noAccess.php");
   }
  
@@ -72,6 +72,8 @@ echo $data['total'];?></span> Tickets</h4>
             <th>Wallet balance</th>
           </tr>
         </thead>
+        
+        <a href = 'add-credits.php'>Add Credits to User
         <?php
 
 $sql='SELECT * FROM users';
