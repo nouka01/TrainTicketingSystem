@@ -150,6 +150,13 @@ caption {
   display: inline-block;
 }
 
+.add-credits-button {
+  margin-left: 30px;
+  display: inline-block;
+  text-align: right;
+
+}
+
 #add-station-button {
   margin-top: 20px;
   margin-left: 102px;
@@ -181,6 +188,23 @@ caption {
 
 #edit-station-button:hover {
   background-color: rgb(0, 78, 137);
+}
+
+#addCreditsButton {
+  /* margin-top: 20px; */
+  border-radius: 15px;
+  color: whitesmoke;
+  text-decoration: none;
+  background-color: rgb(60, 28, 238);
+  border: 0px black solid;
+  border-color: unset;
+  font-size: 30px;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+#addCreditsButton:hover {
+  background-color: rgb(41, 27, 123);
 }
 
 #delete-station-button {

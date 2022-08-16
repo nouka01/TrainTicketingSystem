@@ -56,7 +56,12 @@ $data =  $result->fetch_assoc();
 echo $data['total'];?></span> Tickets</h4>
         </div>
       </div>
+      <div class="add-credits-button">
+          <a id="addCreditsButton" href = 'add-credits.php'> Add Credits to User</a>
+        </div>
     </div>
+
+  
 
     <div class="users-table">
       <table>
@@ -72,8 +77,7 @@ echo $data['total'];?></span> Tickets</h4>
             <th>Wallet balance</th>
           </tr>
         </thead>
-        
-        <a href = 'add-credits.php'>Add Credits to User
+
         <?php
 
 $sql='SELECT * FROM users';
