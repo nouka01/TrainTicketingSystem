@@ -101,7 +101,7 @@ $errorMsg = $e->getMessage();
     <br>
     <br>
 </section>
-<?php include 'footer.php';?>
+
 </html>
 
 
