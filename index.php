@@ -27,9 +27,13 @@
     </video>
     <div class="text-box">
     <p> <?php $helloMsg = "Hello" ;
+    $expire=time()+60*60*24*30;
+    $loggedUserName = $_SESSION['username'];
     
+    setcookie("username", $loggedUserName, $expire);
+
     if(isset($_SESSION['user_id'])){
-      $helloMsg = $helloMsg . ",". $_SESSION['username'];
+      $helloMsg = $helloMsg . ",". $_COOKIE['username'];
     }
     echo $helloMsg;
     
