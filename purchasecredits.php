@@ -1,8 +1,8 @@
-<?php include 'navbar.php';?>
+
 <?php
 session_start();
 require_once 'database/dbConnection.php';
-
+include 'navbar.php';
 $userLoggedID = $_SESSION['user_id'];
 
 ?>
@@ -18,7 +18,7 @@ $userLoggedID = $_SESSION['user_id'];
 	</head>
 	<body class="purchace-ticket-body">
 
-    <form action="">
+    <form action="" method = 'POST'>
     <h2>Purchase <span>Credits</span></h2>
     <div class="name-on-card">
         <label for="nameOnCard">Name on card: </label>
