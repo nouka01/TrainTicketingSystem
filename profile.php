@@ -151,7 +151,7 @@
 </form>
 <form action = 'deleteAccount.php' method = 'POST'>
     <center><input type = 'submit' value = 'Delete Account!' class="btn btn-danger "></center><br>
-    <center><a href = 'reset-password.php'>Reset Your Password Here!</a></center>
+    <center><a href = 'reset.php'>Reset Your Password Here!</a></center>
 </form>
                     
                 
