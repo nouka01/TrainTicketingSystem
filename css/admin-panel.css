@@ -160,6 +160,8 @@ caption {
   border-color: unset;
   font-size: 15px;
   padding: 15px;
+  cursor: pointer;
+
 }
 
 #add-station-button:hover {
@@ -190,6 +192,8 @@ caption {
   border-color: unset;
   font-size: 10px;
   padding: 5px;
+  cursor: pointer;
+
 }
 
 #delete-station-button:hover {

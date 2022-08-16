@@ -16,20 +16,43 @@ $userLoggedID = $_SESSION['user_id'];
 		<link rel="stylesheet" href="css/purchase.css" />
 		<title>Form</title>
 	</head>
-	<body>
-	<center>
-    <h2>Purchase <span>Credits</span></h2>
-<form action = "" method = 'POST'>
-<br><br><br><br><br>
-    Name on card <input required type = 'text' placeholder = 'ex: Johnny Richard'><br><br>
-    Credit Card Number <input required type = 'text' placeholder = 'ex: 1111 2222 3333 4444'><br><br>
-    Expiry Date <input required type = 'text' placeholder = 'ex: 26/06'><br><br>
-    CVV <input required type = 'text' placeholder = 'ex: 111'><br><br>
-    Amount Of Credits <input required type = 'number' name = 'amount' placeholder = 'ex: 10'><br><br>
-    <input type = 'submit' name = 'recharge-submit' value = 'Recharge'>
+	<body class="purchace-ticket-body">
 
-</form>
-</center>
+    <form action="">
+    <h2>Purchase <span>Credits</span></h2>
+    <div class="name-on-card">
+        <label for="nameOnCard">Name on card: </label>
+        <br>
+        <input id="nameOnCard" required type = 'text' placeholder = 'ex: Johnny Richard'>
+    </div>
+    
+    <div class="credit-card-number">
+        <label for="cardNumber">Credit Card Number: </label>
+        <br>
+         <input id="cardNumber" required type = 'text' placeholder = 'ex: 1111 2222 3333 4444'>
+    </div>
+    <div class="expiry-date">
+        <label for="expiryDate">Card expiry Date: </label>
+        <br>
+        <input id="expiryDate" required type = 'text' placeholder = 'ex: 26/06'>
+    </div>
+    <div class="cvv-number">
+        <label for="cvvNumber">CVV: </label>
+        <br>
+        <input id="cvvNumber" required type = 'number' placeholder = 'ex: 111'>
+    </div>
+
+    <div class="amount-if-credits">
+        <label for="amountCredits">Amount Of Credits: </label>
+        <br>
+        <input id="amountCredits" required type = 'number' name = 'amount' placeholder = 'ex: 10'>
+    </div>
+
+    <div class="button-to-submit">
+    <input id="buttonToSubmit" type = 'submit' name = 'recharge-submit' value = 'Recharge'>
+    </div>
+    </form>
+
 	</body>
 </html>
 

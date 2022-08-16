@@ -99,6 +99,8 @@ select {
     border-color: unset;
     font-size: 25px;
     padding: 15px;
+    cursor: pointer;
+
 }
 
 #submit:hover {
